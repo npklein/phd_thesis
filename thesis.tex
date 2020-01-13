@@ -1,0 +1,42 @@
+\documentclass[10pt]{book}
+\usepackage[a5paper]{geometry}
+\usepackage{mathpazo} % font style
+\linespread{1.05} % Palatino needs more leading (space between lines)
+\renewcommand{\familydefault}{\sfdefault}
+\input{usepackages.tex} % load required packages
+\raggedbottom % prevent spreading out paragraphs with lots of whitespace inbetween
+
+\begin{document}
+
+\pagestyle{empty}
+
+\input{non_chapters/cover.tex}
+
+\setcounter{page}{1}
+
+\input{non_chapters/preamble.tex}
+
+\tableofcontents
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+\fancyfoot[LE,RO]{\thepage}
+
+\input{chapters/introduction.tex}
+\input{chapters/discussion.tex}
+
+\bibliographystyle{plain}
+
+\cleardoublepage
+\leftwatermark{}\rightwatermark{} % stop printing the thumb indexes
+\phantomsection\bibliography{references}{}
+\cleardoublepage\phantomsection\listoftables
+\cleardoublepage\phantomsection\listoffigures
+
+\input{non_chapters/appendix.tex}
+
+\input{non_chapters/back.tex}
+
+\end{document}

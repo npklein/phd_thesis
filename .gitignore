@@ -1,0 +1,12 @@
+test
+test/*
+*aux
+*log
+*bbl
+*gz
+*toc
+*blg
+*pdf
+*xml
+*bcf
+*bib

@@ -1,0 +1,45 @@
+\usepackage[utf8]{inputenc} % allow direct utf8 input
+\usepackage[font=small,labelfont=bf]{caption} % make figure captions smaller and label bold
+\usepackage{graphicx} % allow figures
+\usepackage{hyperref} % allow hyperlinks
+\usepackage{alltt} % allow soft-TT environment
+\renewcommand{\ttdefault}{qcr} % set TT font to qcr which can be bolded
+\usepackage{moresize} % adds intermediate font size used to make TT section fit nicer
+\usepackage{varwidth} % make it easier to center text in overpic enviroment
+\usepackage[anythingbreaks]{breakurl} % break urls to fit on page
+\usepackage{rotating} % allow rotating of e.g. tables
+\usepackage{tabulary} % allows tables to automatically adjust to line width
+\usepackage{bm,amsmath} % deal with formulas and math
+\usepackage{fancyhdr} % nice headers and footers
+  \fancypagestyle{plain}{% redefine the plain style, needed to preserve layout on chapter headings with fncychap
+    \fancyhf{}
+    \fancyhead[LE]{\leftmark}
+    \fancyhead[RO]{\rightmark}
+    \fancyfoot[LE,RO]{\thepage}
+  }
+\usepackage[toc,page]{appendix} % allow nice appendix
+\usepackage[dvipsnames,table]{xcolor} % allow table cell colors
+  \definecolor{deepcyan}{RGB}{47,99,84}
+  \definecolor{deepyellow}{RGB}{254,227,68}
+  \definecolor{deeporange}{RGB}{254,140,40}
+\usepackage{tabularx} % for rare tables that refuse layout by regular means
+\usepackage[percent]{overpic} % put text on top of figure, used for back
+\usepackage{wrapfig} % text around figure for cv
+\usepackage{watermark} % used for making the thumb indices
+\usepackage[most]{tcolorbox} % nice rounded color text box
+\usepackage{hyperref} % for label-url style hyperlinks
+\usepackage{caption} % allow changing the font of captions, ie. make smaller when absolutely needed
+\usepackage[nottoc]{tocbibind} % show bibliography in TOC
+\usepackage[Glenn]{fncychap} % nicer looking chapter headings
+  \ChNameVar{\Huge\fontfamily{lmss}\selectfont\color{black}}
+  \ChNumVar{\Huge\fontfamily{lmss}\selectfont\color{black}}
+  \ChTitleVar{\Huge\bfseries\fontfamily{lmss}\selectfont\color{deeporange}}
+  \ChNameAsIs
+  \ChTitleAsIs
+  % defaults: \ChNameVar{\bfseries\Large\sf}, \ChNumVar{\Huge}, \ChTitleVar{\bfseries\Large\rm}, ChRuleWidth{1pt}, \ChNameUpperCase, \ChTitleUpperCase
+
+% bibliography reference check:
+%\usepackage{refcheck} % warn about unused references, also adds bibliography labels, disable for production
+% plus:
+%\nocite{*} % nocite will add ?..? to bibliography label when an entry is unused
+%\bibliography{references}{}
