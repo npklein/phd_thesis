@@ -12,4 +12,8 @@ Alternatively, create the PDF yourself straight from the source:
 4. Compile the document (output: thesis.ps and thesis.pdf) using `sh run.sh`.
 
 
-LaTeX (layout/typesetting) backbone is taken from https://github.com/joerivandervelde/phdthesis_published and adjusted to my preferences.
+
+## Layout and typesetting acknowledgement
+Big thanks to Joeri van der Velde for making his PhD thesis LaTeX project publically available. (layout/typesetting) backbone is taken from https://github.com/joerivandervelde/phdthesis_published and adjusted to my preferences.
+
+
