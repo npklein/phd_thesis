@@ -10,3 +10,6 @@ test/*
 *xml
 *bcf
 *bib
+*lof
+*lot
+*out

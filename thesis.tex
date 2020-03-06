@@ -1,6 +1,6 @@
 %\documentclass[10pt, draft]{book} % Remove draft for final version
 \documentclass[10pt]{book} % Remove draft for final version
-\input{usepackages.tex} % load required packages
+\input{packages.tex} % load required packages
 
 \input{preamble.tex} % Preamble holds options that are document wide, e.g. chapter style
 
@@ -22,13 +22,14 @@
 \fancyhead[RO]{\rightmark}
 \fancyfoot[LE,RO]{\thepage}
 
-\input{chapters/introduction.tex}
-\input{chapters/chapter2-genetic-architecture/chapter2-genetic-architecture.tex}
-\input{chapters/discussion.tex}
+\include{chapters/chapter1-introduction/chapter1-introduction}
+%\include{chapters/chapter2-genetic-architecture/chapter2-genetic-architecture}
+\include{chapters/chapter4-deconvolution/chapter4-deconvolution}
+\include{chapters/chapter6-discussion/chapter6-discussion}
 
 
 \cleardoublepage
-\leftwatermark{}\rightwatermark{} % stop printing the thumb indexes
+
 \cleardoublepage\phantomsection\listoftables
 \cleardoublepage\phantomsection\listoffigures
 
