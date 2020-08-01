@@ -6,6 +6,7 @@
 \usepackage{tabularx} % for rare tables that refuse layout by regular means
 \usepackage{watermark} % used for making the thumb indices
 \usepackage{tabulary} % allows tables to automatically adjust to line width
+\usepackage{parskip} % add empty line between paragraphs
 
 \usepackage{tikz} % package to create graphic elements, used in chapterstyle.tex
 
@@ -20,6 +21,10 @@
 
 \usepackage[font={small}]{caption} % make figure captions small and italic
 
+\usepackage{xcolor} % colour definitions
+\usepackage{sectsty} % change header colour
+
 
 % Important: hyperref should be loaded last
-\usepackage{hyperref} % for label-url style hyperlinks
+% hidelinks removes the green border around the links
+\usepackage[hidelinks]{hyperref} % for label-url style hyperlinks

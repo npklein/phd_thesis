@@ -1,5 +1,5 @@
 %\documentclass[10pt, draft]{book} % Remove draft for final version
-\documentclass[10pt]{book} % Remove draft for final version
+\documentclass[10pt, openany]{book} % Remove draft for final version
 \input{packages.tex} % load required packages
 
 \input{preamble.tex} % Preamble holds options that are document wide, e.g. chapter style
@@ -8,33 +8,39 @@
 
 \pagestyle{empty}
 
-\input{non_chapters/cover.tex}
+%\input{non_chapters/cover.tex}
 
 \setcounter{page}{1}
 
-\input{non_chapters/preamble.tex}
+%\input{non_chapters/preamble.tex}
 
-\tableofcontents
+%\tableofcontents
 
+%\newpage
 \pagestyle{fancy}
+
+% define \pcolor variable so that colour of chapter can be changed later
+\newcommand\pcolor{black}
+
 \fancyhf{}
-\fancyhead[LE]{\leftmark}
-\fancyhead[RO]{\rightmark}
-\fancyfoot[LE,RO]{\thepage}
+% tile of chapter above each page
+\fancyhead[LE]{\color{\pcolor} \leftmark}
+\fancyhead[RO]{\color{\pcolor} \rightmark}
+\renewcommand{\headrulewidth}{3pt} % thickness of line
 
 \include{chapters/chapter1-introduction/chapter1-introduction}
 %\include{chapters/chapter2-genetic-architecture/chapter2-genetic-architecture}
-\include{chapters/chapter4-deconvolution/chapter4-deconvolution}
-\include{chapters/chapter6-discussion/chapter6-discussion}
+%\include{chapters/chapter4-deconvolution/chapter4-deconvolution}
+%\include{chapters/chapter6-discussion/chapter6-discussion}
 
 
-\cleardoublepage
+%\cleardoublepage
 
-\cleardoublepage\phantomsection\listoftables
-\cleardoublepage\phantomsection\listoffigures
+%\cleardoublepage\phantomsection\listoftables
+%\cleardoublepage\phantomsection\listoffigures
 
-\input{non_chapters/appendix.tex}
+%\input{non_chapters/appendix.tex}
 
-\input{non_chapters/back.tex}
+%\input{non_chapters/back.tex}
 
 \end{document}
