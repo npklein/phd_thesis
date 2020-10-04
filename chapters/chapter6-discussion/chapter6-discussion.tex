@@ -20,7 +20,7 @@
 \newpage
 
 \section{Summary of this thesis}
-As mentioned in my introduction, the ultimate goal of most (human) genetics research is to improve healthcare outcomes. This can be done in many different ways, for example through drug discovery, biomarker identification, or better diagnosing, but also by improving our understanding of health and disease\cite{mcguireRoadAheadGenetics2020, claussnitzerBriefHistoryHuman2020e}. This thesis focusses on the latter, improving our understanding of health and disease. 
+As mentioned in the introduction, the ultimate goal of most (human) genetics research is to improve healthcare outcomes. This can be done in many different ways, for example through drug discovery, biomarker identification, or better diagnosing, but also by improving our understanding of health and disease\cite{mcguireRoadAheadGenetics2020, claussnitzerBriefHistoryHuman2020e}. This thesis focusses on the latter, improving our understanding of health and disease. 
 
 The regulatory networks in which genes form pathways are incredibly complex, with many layers of regulation. When trying to understand the function of a gene or the potential of a gene to be a candidate drug target, it is important to know how this gene functions within these complicated pathways. One way to approach this is by identifying which genetic factors affect the genes through eQTL studies, and subsequently building gene correlation networks to identify which pathways these genes are involved in. Preferably this should be done in cell type or tissue that is relevant for the phenotype of interest. In this thesis we have outlined the genetic architecture of molecular traits in \textbf{Chapter 1}\cite{claringbouldGeneticArchitectureMolecular2017} and identified the effect of rare variants on gene expression data in whole blood in \textbf{Chapter 2}\cite{kleinImbalancedExpressionPredicted2020}. We have developed statistical methods to look at cell type interacting genetic effects in blood in \textbf{Chapter 4}\cite{raulaguirre-gamboaDeconvolutionBulkBlood2020}, and we have analysed the effects of common variants on gene expression in the brain in Chapter 5. 
 
@@ -37,7 +37,7 @@ Using this approach we were able to assess the effects of rare variants on gene 
 This information can help in diagnosis by...
 
 
-\subsection{Digging into cellular contxt}
+\subsection{Digging into cellular context}
 To find causal links and to understand the variant mechanism, it is imperative to study effects in the right tissue and cell type. This is one of the main drivers behind developing Decon2 in \textbf{chapter 4}, which allows us to deconvolute cell type interacting eQTLs from bulk RNA-seq samples. However, there are some limitations to this approach. For one, although we compare favourably against other cell count prediction tools xCell\cite{aranXCellDigitallyPortraying2017} and CIBERSORT\cite{newmanRobustEnumerationCell2015}, there is still an error in the predicted cell count proportions. This propagates to the eQTL deconvolution. Secondly, because we use cell count proportions there are significant correlations between cell types. This makes it difficult to pinpoint the cell type specific effect. For example, if neutrophils and monocytes are anti-correlated to each other, and if an interaction effect is found in Neutrophil, it could also be that the effect is actually due to an opposite effect in monocytes. Thirdly, it is difficult to deconvolute the effect in sub-cell types, and for Decon2 we deconvoluted only the 6 main immune cell types. However, there are many more sub cell types that might be very relevant for understanding disease.
 
 One method to overcome these three problems is to use single-cell RNA-seq\cite{tangMRNASeqWholetranscriptomeAnalysis2009}. Recently, this technique has been shown to be able to identify cell-type specific eQTLs\cite{vanderwijstSinglecellRNASequencing2018b}. Cell types can be assigned to single cells on the basis of expression levels of marker genes, removing the error of predicting cell counts. Because eQTLs are calculated within only those cells from a specific cell type, there is no problem of correlated cell count proportions. Thirdly eQTLs can be assessed even in rare cell types (although enough cells need to be available to have enough power to detect eQTLs).
@@ -48,13 +48,24 @@ Genetic effects are not only dependent on the cellular context, but physiologica
 \subsection{Functional validation}
 This work has been ... crispr
 
-\subsection{ethnicity}
+\subsection{The need for more diversity in sampling}
+One of the major obstacles of transitioning to precision medicine is that most of the large genetic cohorts, and because of that the majority of studies of genetic association with disease, have been done in European (52\%) or Asian (21\%) populations\cite{sirugoMissingDiversityHuman2019}. This is mainly problematic for polygenic disorders where there the causative variants and tagging SNPs are in weak LD\cite{sirugoMissingDiversityHuman2019}. For example, a multiethic meta-analysis for pulmonary function identified over 50 new loci by including individuals from African, Asian, and Hispanic/Latino ethnicities\cite{wyssMultiethnicMetaanalysisIdentifies2018}.  Additionally, certain SNPs may only be present in specific populations\cite{adalsteinsdottirberglindNationwideStudyHypertrophic2014}.  In \textbf{chapter 5}, enough Cortex samples from individuals from African and East Asian descent are included for eQTL analysis, and we find strong concordance of directionality of eQTL effect. Together this suggests that generally, the genetic effect on gene expression will be the same, but the frequency of alleles is different. 
 
 \subsection{Drug predictions}
+One thing not addressed in this thesis is the prioritisation of drug compounds using genomics information. One of the tools that can be used is the connectivity map\cite{lambConnectivityMapUsing2006}. It has measured gene expression levels in cell cultures that were treated by different drug compounds, and compared that to gene expression levels of cell cultures that were not treated by any drug compounds. Fisetin\cite{gibbsHumanGenomeProject2020}.
 
+\subsection{Outside of gene expression}
+This thesis has focussed on the genetic regulation of gene expression. 
 
-\section{Final thoughts}
+\section{Future work}
+* multi-ethnic
+* single-cell
+* disease/healthy
+* unstimulated/stimulated
+* dnaseq/ataqseq/proteomics
 Reading back the transformation that the genomics and genetics fields have made over the last 20 years is amazing. There have been tremendous advances in the last 20 years that have lead to a much better understanding of the genetic basis of diseases. These insights are now often driving translational research. For example for the the drug development pipeline, drug mechanism with direct genetic support increases from 2\% at the preclinical stage to 8.2\% for approved drugs\cite{nelsonSupportHumanGenetic2015d}. Since for many diseases we know which variants are associated with increased risk thanks to the many large scale GWAS studies that have been done (currently the GWAS catalog\cite{macarthurNewNHGRIEBICatalog2017a} contains 4118 studies for 3418 traits), this information can be leveraged to improve drug development. However, to be able to do this in the most optimal way we need to understand the mechanism by which these variants drive disease risk, and to link them to causal genes and proteins.
- With continued efforts in building comprehensive maps of genotype-phenotype relationships under various circumstances, further advancements in high throughput functional variant screenings such as with crispr-cas, and continued application of new insights from these efforts for new therapeutic options, we will see genetics play more and more important roles in healthcare and drug development. 
+With continued efforts in building comprehensive maps of genotype-phenotype relationships under various circumstances, further advancements in high throughput functional variant screenings such as with crispr-cas, and continued application of new insights from these efforts for new therapeutic options, we will see genetics play more and more important roles in healthcare and drug development. 
 
+
+\subsection{Collaboration and open data}
 Finally, a lot of the work in this thesis, and all of \text{chapter 5}, is built on publicly available data. Without the academic community being so open to sharing their data<finish sentence> 
