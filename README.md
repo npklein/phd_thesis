@@ -1,5 +1,4 @@
 # PhD thesis of Niek de Klein, 2020
-## " - "
 
 
 Download this thesis and its propositions via the [University of Groningen](https://www.rug.nl/about-us/news-and-events/events/phd-ceremonie
