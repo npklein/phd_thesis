@@ -5,9 +5,10 @@
 \raggedbottom % prevent spreading out paragraphs with lots of whitespace inbetween
 
 
-\SetWatermarkText{draft v1}
-\SetWatermarkScale{1}
-\SetWatermarkColor[gray]{0.9}
+% To have draft watermark over the text. Comment when not draft anymore
+%\SetWatermarkText{draft v1}
+%\SetWatermarkScale{1}
+%\SetWatermarkColor[gray]{0.9}
 
 
 % define colours
@@ -16,3 +17,9 @@
 \definecolor{LightOrange}{rgb}{0.90196078431,0.62352941176,0}
 \definecolor{DarkOrange}{rgb}{0.83529411764,0.36862745098,0}
 \definecolor{Grey}{rgb}{0.50196078431,0.50196078431,0.50196078431}
+
+
+
+% use newer pdf version, or it gives warnings with some of my figures that were
+% made with newer pdf version
+\pdfminorversion=6
