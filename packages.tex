@@ -2,9 +2,9 @@
 
 
 
-\usepackage[table,xcdraw]{xcolor} % % for table, has to be on top so it doesn't clash with others
-\usepackage[normalem]{ulem}
-\useunder{\uline}{\ul}{}
+\usepackage[table,xcdraw]{xcolor} % for colours in table, has to be on top so it doesn't clash with others
+\usepackage[normalem]{ulem} % for table
+\useunder{\uline}{\ul}{} % for table
 
 \usepackage[utf8]{inputenc} % allow direct utf8 input
 \usepackage{tabularx} % for rare tables that refuse layout by regular means
@@ -45,3 +45,6 @@
 % Important: hyperref should be loaded last
 % hidelinks removes the green border around the links
 \usepackage[hidelinks]{hyperref} % for label-url style hyperlinks
+
+
+\usepackage[font=footnotesize,labelfont=bf]{caption} % make figure caption size small, and Figure part bold
