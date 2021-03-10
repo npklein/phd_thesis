@@ -1,5 +1,5 @@
 
-\chapterfont{\color{LightOrange}}  % sets colour of chapter
+\chapterfont{\huge\color{LightOrange}}  % sets colour of chapter
 \sectionfont{\color{LightOrange}}  % sets colour of sections
 \subsectionfont{\color{LightOrange}}  % sets colour of subsections
 
@@ -26,8 +26,16 @@
 		\put(350.5,-191.5){ 6 }
 }}
 
-
+\cleardoublepage
+\cleardoublepage
+\cleartoleftpage
+\makeatletter
+\let\savedchap\@makechapterhead
+\def\@makechapterhead{\vspace*{-3cm}\savedchap}
 \chapter[Imbalanced expression for predicted high-impact, autosomal-dominant variants in a cohort of 3,818 healthy samples]{Imbalanced expression for predicted high-impact, autosomal-dominant variants in a cohort of 3,818 healthy samples}
+\chaptermark{}
+\let\@makechapterhead\savedchap
+\makeatletter
 \chaptermark{}
 
 \label{chap:chapter3-ase}
@@ -36,31 +44,12 @@
 \hfill \underline{bioRxiv} 2020 Sep 20;
 
 \hfill DOI: \href{https://doi.org/10.1101/2020.09.19.300095}{2020.09.19.300095}
-
-
-\noindent
 \\
 \\
-
-
-Niek de Klein\textsuperscript{1,*}, Freerk van Dijk\textsuperscript{1,2,*}, Patrick Deelen\textsuperscript{1,2,7}, Carlos G. Urzua\textsuperscript{1}, Annique Claringbould\textsuperscript{1}, Urmo Võsa\textsuperscript{1}, Joost A.M. Verlouw\textsuperscript{3}, Ramin Monajemi\textsuperscript{4}, Peter A.C. ‘t Hoen\textsuperscript{5,6}, Richard J. Sinke\textsuperscript{1}, BIOS Consortium, Morris A. Swertz\textsuperscript{1,2} and Lude Franke\textsuperscript{1,§}
-
-
-\noindent
-1 University of Groningen, University Medical Center Groningen, Department of Genetics, Groningen, the Netherlands.\\
-2 Genomics Coordination Center, University of Groningen, University Medical Center Groningen, the Netherlands.\\
-3 Dept. of Internal Medicine, Erasmus Medical Center Rotterdam, the Netherlands.\\
-4 Dept. of Biomedical Data Sciences, Leiden University Medical Center, the Netherlands.\\
-5 Dept. of Human Genetics, Leiden University Medical Center, the Netherlands.\\
-6 Centre for Molecular and Biomolecular Informatics, Radboud University Medical Center, the Netherlands\\
-7 Department of Genetics, University Medical Centre Utrecht, P.O. Box 85500, 3508 GA, Utrecht, the Netherlands
-
-* These authors contributed equally to this work.\\
-§ Corresponding author: lude@ludesign.nl
+Niek de Klein\textsuperscript{*}, Freerk van Dijk\textsuperscript{1*}, Patrick Deelen, Carlos G. Urzua, Annique Claringbould\textsuperscript, Urmo Võsa, Joost A.M. Verlouw, Ramin Monajemi, Peter A.C. ‘t Hoen, Richard J. Sinke, BIOS Consortium, Morris A. Swertz and Lude Franke
 \\
 \\
-\noindent
-published: 6 March 2017.
+* These authors contributed equally to this work.
 
 \newpage
 
@@ -73,12 +62,15 @@ published: 6 March 2017.
 
 \textbf{Conclusions} Our analysis in a large population-based gene expression cohort reveals examples of high impact, autosomal-dominant variants that are compensated for by imbalanced expression. Additionally, we observed that ASE analyses in blood are informative for predicting pathogenic variants that  are associated with immune and haematological conditions. We have made all our ASE results, including many ASE calls for rare variants (MAF $<$ 1\%), available at \url{https://molgenis15.gcc.rug.nl/}. 
 
+\Needspace{10\baselineskip}
 \section{Introduction}
 One of the challenges in the diagnosis of genetic disorders is the growing number of Variants of Unknown Significance (VUS)\cite{hoffman-andrewsKnownUnknownChallenges2018,direstaNextgenerationSequencingApproach2018}). As (clinical) exome sequencing becomes more prevalent, new variants are increasingly being identified, but the consequences of these rare variants remain mostly unknown. However, a recent study suggested that rare variants might explain much of the missing heritability\cite{wainschteinRecoveryTraitHeritability2019}. For common variants, genome-wide association studies and expression Quantitative Trait Loci (eQTL) studies\cite{zhernakovaIdentificationContextdependentExpression2017,aguetGeneticEffectsGene2017,vosaUnravelingPolygenicArchitecture2018} are commonly used to identify disease-associated variants and infer their molecular consequences. This has led to the observation that many of these genetic risk factors affect gene expression, indicating that transcriptional consequences are informative for predicting whether a common variant is associated with disease. By further increasing eQTL sample sizes, it is now possible to make such inferences for variants with a minor allele frequency (MAF) of at least 1\%\cite{vosaUnravelingPolygenicArchitecture2018}. However, the power to make inferences for rarer variants remains limited. One way to resolve this is to identify their downstream molecular consequences by studying allele-specific expression (ASE)\cite{bombaImpactRareLowfrequency2017}. Knowledge about rare variants gained using this approach can then aid in interpreting their pathogenicity, which could substantially increase the diagnosis rate of patients\cite{macarthurGuidelinesInvestigatingCausality2014,kremerGeneticDiagnosisMendelian2017}. As such, RNA-Sequencing methods can help prioritize rare variants that show downstream molecular effects and are more likely to cause (rare) disorders.
 
 Here we studied RNA from whole blood for 3,818 unrelated individuals from BIOS, a large Dutch biobank consortium. To identify rare variants, we conducted genotype calling on the RNA-Sequencing data directly. We then studied ASE for 297,656 high quality variants and identified 45,197 variants that show an allelic imbalance. We showed that known pathogenic variants are more likely to show an ASE effect. Furthermore, downstream analyses identified 7 samples carrying high impact, autosomal-dominant variants, which showed strong allelic imbalance.
 
+\Needspace{10\baselineskip}
 \section{Results}
+\Needspace{10\baselineskip}
 \subsection{RNA-Seq data can be used to create high-quality phased genotypes}
 We first determined the genotypes for all BIOS samples using RNA-Seq expression data by employing a modified version of the GATK\cite{mckennaGenomeAnalysisToolkit2010} best practices workflow for genotyping (see Methods). After joint genotype calling and filtering out genotypes with low quality, low call rate, or overlap with RNA-editing sites, missing genotype calls were imputed to their most likely genotypes using a backbone of genotyping array-genotypes and genotypes called from RNA-Seq. After quality control (QC), 297,656 SNPs in 9507 genes were called (\textbf{Supplementary Figure 1A}), and most of these SNPs had a low MAF (mean MAF = 0.036, \textbf{Supplementary Figure 1B}). The number of low MAF SNPs is so high largely due to the limitation of calling genotypes from RNA-Seq data, as genes have to be sufficiently expressed.
 
@@ -92,19 +84,23 @@ For 249 samples, whole-genome sequencing (WGS) data was available from the Genom
 
 ASE for a gene can only be calculated if there is at least one heterozygous site within that gene. In total, we were able to genotype 9,508 genes in which at least one sample had a heterozygous coding SNP, with a mean of 1,495 samples with at least one heterozygous SNP per gene (Supplementary a). Of the genes where we found no samples with a heterozygous genotype, these genes were either not expressed or expressed at very low levels in blood, which prevented determination of the genotype. Overall, per sample genotype data could be derived for 3,650 genes on average (\textbf{Supplementary Figure 2B}). We then used SHAPEIT\cite{oconnellGeneralApproachHaplotype2014} to phase imputed genotypes to haplotypes and to calculate haplotype- and gene-level ASE effects. To determine the quality of the phasing, we again used the 249 samples for which WGS genotypes were available, and which were previously trio-phased with their parents, as the gold standard. In this data 69,752 heterozygous SNPs were called, of which 10,465 (15\%) have at least 1 sample with a switch error. For most SNPs, only 1 or a few samples had a switch error per SNP. Averaged over all SNPs and samples 1.97\% had a switch error (\textbf{Figure \ref{ase_fig1}C}). Together, this shows that the phasing of the RNA-Seq-based genotypes is of high quality, meaning that these data could be used for gene-based ASE.
 
+\Needspace{10\baselineskip}
 \subsection{Selection of samples showing strong gene-level ASE effects}
 We measured three types of ASE effects: SNP-level ASE over the whole population (for validating ASE results), SNP-level ASE per sample, and gene-level ASE (geneASE). SNP-level ASE over the whole population is calculated by per SNP summing minor counts for all samples and summing major counts for all samples, and subsequently performing a binomial test with an expected p of 0.5. In order to correct for multiple testing, we employed the Benjamini-Hochberg method and considered those SNPs significant when the false discovery rate (FDR) was less than 0.05. GeneASE takes into account the summed haplotype counts for all the heterozygous SNPs that overlap the gene. For geneASE, we determined per gene for all samples separately, whether there is an ASE effect by summing the counts of haplotype A and summing the counts of haplotype B, and subsequently performing a binomial test for every gene on the summed haplotype A and haplotype B count for that sample with expected p = 0.5. In order to correct for multiple-testing we again used the Benjamini-Hochberg method and all samples with an FDR $<$ 0.05 were considered to show a significant ASE effect, yielding a total of 3,611 genes with at least 1 sample that showed geneASE. On average, 50 samples show an ASE effect per gene.
 
 The SNP-level ASE per sample was determined in the same way as the GeneASE, but instead of using haplotype A and haplotype B counts, the SNP minor and major allele counts were used.
 
+\Needspace{10\baselineskip}
 \subsection{ASE is replicated in GTEx whole-blood ASE and in eQTLs}
 To validate the ASE calls, we compared our SNP-level ASE over the whole population to eQTLs on the same dataset and ASE effects found in LCL cell lines\cite{deelenCallingGenotypesPublic2015} and GTEx\cite{pirinenAssessingAllelespecificExpression2015}. For each SNP for which at least 30 individuals were heterozygous, we summed the read counts overlapping the major allele and those overlapping the minor allele over all samples heterozygous for that SNP. We filtered out SNPs with 0 counts on the minor or major allele and calculated a ratio with -1*(0.5 - (major allele count / total count)), so that a negative ratio means that the minor allele has more reads than the major allele, and a positive ratio means the major allele has more reads than the minor allele. We compared this ratio to the BIOS eQTL z-score, allelic ratio of LCL ASE and allelic ratio of GTEx ASE. 
 
 For the eQTLs, there was an overlap of 4,394 SNPs with False Discovery Rate (FDR) $<$ 0.05 for both the ASE effect and the eQTL effect. Of these overlapping SNPs, 87.5\% had the same direction with a Spearman correlation coefficient of 0.78 (Supplementary ). For LCL ASEs, 7,901 SNPs overlapped when selecting only those SNPs with at least 30 heterozygous samples that are significant in both datasets (FDR $<$ 0.05), with a 72.2\% allelic concordance and Spearman correlation coefficient of 0.527 (\textbf{Supplementary Figure 4}). As expected, since it is the same tissue, we find the largest ASE overlap with GTEx whole blood. There were 9,117 overlapping SNPs after filtering for FDR $<$ 0.05 and at least 30 samples, these 9,117 SNPs had a Spearman R2 of 0.72 and an allelic concordance of 82.65\% (\textbf{Figure \ref{ase_fig1}}). For other GTEx tissues the Spearman R2 was between 0.6 and 0.68 (\textbf{Supplementary Figure 5}).
 
+\Needspace{10\baselineskip}
 \subsection{Rare variants are not enriched for ASE effects}
 Rare variants are thought to have a large contribution to disease phenotypes and those that show eQTLs effects usually have higher effect sizes than common variants \cite{claringbouldGeneticArchitectureMolecular2017}, although this can also be explained by power issues. We therefore assessed whether rare variants affect allelic imbalance more often than common variants. To test this, we used the geneASE described to define genes showing ASE and genes not showing ASE, and subsequently counted the number of heterozygous SNVs within the genes for different MAF bins ($<$ 0.1\%, 0.1-1\%, 1-5\%, 5-50\%). We then tested, per sample, whether genes with an allelic imbalance contained more rare variants than genes that did not show an allelic imbalance and found that genes containing common heterozygous variants showed an allelic imbalance more often than genes containing rare variants (\textbf{Supplementary Figure 6}, p $< 1 \times 10^{-300}$). This suggests that although the effects of rare variants might be larger, proportionally rare variants show allelic imbalance less often than common variants. 
 
+\Needspace{10\baselineskip}
 \subsection{Known pathogenic variants from the ClinVar and VKGL databases show a high proportion of allelic imbalance}
 To investigate if ASE can be used to prioritize likely pathogenic variants, we tested if genes containing pathogenic SNPs show allelic imbalance more often than genes containing benign SNPs. We took the 341,303 variants annotated by the ClinVar database (downloaded 19-02-2019) and selected 63,983 high-confidence variants (criteria provided, multiple submitters, no conflicts). For our 318,782 high-quality genotypes, 2,746 overlapped with these high confidence variants (2,200 benign, 125 pathogenic and 421 VUS). For 162 of these (113 benign, 8 pathogenic and 41 VUS) the gene in which the SNP is located did not have any allelic counts (e.g. because there were no heterozygous individuals with enough reads for this gene). For the remaining 2,584 variants, we compared the fraction of samples that show geneASE (binomial test p-value $<$ 0.05 after Bonferroni correction) between pathogenic variants, VUS and benign variants. For ClinVar-annotated variants, genes that contained pathogenic variants showed allelic imbalance more frequently than genes that contained VUS and benign variants (5.89\%, 2.87\% and 3.01\% respectively, \textbf{Figure \ref{ase_fig2}B})\cite{landrumClinVarImprovingAccess2018}. We observed similar results looking at data from the VKGL data share consortium\cite{fokkemaDutchGenomeDiagnostic2019}, a Dutch variant classification database of annotated variants, where there was more allelic imbalance for pathogenic variants than for benign variants (20.3\% versus 4.9\%, \textbf{Figure \ref{ase_fig2}B}). 
 
@@ -124,10 +120,12 @@ We then annotated the genes in which these SNPs are located into different disea
 \end{figure}
 
 
+\Needspace{10\baselineskip}
 \subsection{Splice donor and acceptor variants are often the cause of allelic imbalance}
 We next investigated the functional effect of ASE variants by annotating variants using SnpEff \cite{cingolaniProgramAnnotatingPredicting2012}, a genetic variant annotation and functional effect prediction toolbox. We observed that for some disease categories, predicted high impact variants showed allelic imbalance more often than moderate and low impact variants (\textbf{Supplementary Figure 6}). When examining SnpEff predicted inheritance categories, the high impact variants always showed a higher proportion of allelic imbalance for all inheritance categories that contained high impact variants (Autosomal Dominant (AD), Autosomal Dominant or Autosomal Recessive (AD/AR), Autosomal Recessive (AR), and other, \textbf{Supplementary Figure 7}). The SnpEff categories are partly based on the type of mutation. Within the high impact category, splice donor and acceptor variants showed allelic imbalance more often (64\% and 71\%, respectively) than stop gained, stop loss and start loss variants (41\%, 49\% and 12\%, respectively). When variants were stratified by high impact category, the strongest enrichment (Test of Proportions p = 4.72x10-106, \textbf{Supplementary Figure 8}) was observed in the stop gain category. Other categories in which this enrichment is present are start loss (p = 2.73x10-25), stop loss (p = 2.5x10-50) and splice acceptor sites (p = 5.67x10-05).
 
 
+\Needspace{10\baselineskip}
 \subsection{Predicted high impact variants under express the minor allele}
 The effect of high impact variants might be mitigated if the expression of the haplotype with the disruptive allele is lower than that of the haplotype with the functional allele. To test this, we annotated the geneASE SNPs with SnpEff-predicted impact categories. Here we observed that the minor/major expression ratio of high impact variants showed significantly larger differences than that of moderate (Wilcoxon  test p = 1.9x10-15) and low impact variants (Wilcoxon test p = 6.8x10-26, \textbf{Figure \ref{ase_fig4}}). We speculate that this is because the high impact variant limits the amount of expression of the haplotype of that allele by having a start loss or stop gain function, possibly leading to nonsense-mediated decay. The major haplotype can compensate for the loss of function of the modified haplotype to keep the overall expression of the gene similar to the baseline expression. One way this can happen is due to a feedback loop from downstream proteins not getting enough correctly binding proteins, initiating the transcription of more RNA of the imbalanced gene. 
 
@@ -139,6 +137,7 @@ The effect of high impact variants might be mitigated if the expression of the h
 
 
 
+\Needspace{10\baselineskip}
 \subsection{Expression of some genes with autosomal dominant mutations is normal compared to the rest of the population}
 Finally, we found that seven individuals carried a total of six high impact (SnpEff-predicted impact = high and CADD phred score $>$ 20) autosomal dominant variants within one of five different genes (\textit{ALOX5}, \textit{COMT}, \textit{PRPF8}, \textit{PSTPIP1} and \textit{SH3BP2}). The allelic depth of five of these seven observations was high ($\geq$ 36 reads on each allele), making it unlikely that they are false positive findings. For two genes, \textit{COMT} and \textit{PRPF8}, the allelic depth was lower (26/6 and 8/40 counts on the reference/alternative allele, respectively) but still deemed sufficient. Of the six variants, one was also observed in array data with a concordant genotype, while the others were not present in the array data because they were too rare to be reliably imputed. 
 
@@ -150,24 +149,31 @@ Since our BIOS participants are mostly healthy, it is unlikely that these autoso
 	\label{ase_fig5}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \section{Discussion}
 
 In clinical genetics there are still many cases where a diagnosis cannot be made\cite{diemenRapidTargetedGenomics2017}. For some of these undiagnosed cases, RNA-Sequencing can help make a diagnosis\cite{marco-pucheRNASeqPerspectivesImprove2019}, and outlier ASE has recently been used as diagnostic tool for muscular disease patients\cite{mohammadiGeneticRegulatoryVariation2019}. However, to know what effect a very rare pathogenic variant might have, ASE must be analysed in a large dataset. In this study we explored the effects of rare variants on gene expression in blood in the samples of 3,810 individuals from BIOS, a Dutch population-based consortium. This allowed us to compare the effects of rare variants on gene expression for SNVs with different pathogenicity levels and impact factors for genes in various disease categories.
 
+\Needspace{10\baselineskip}
 \subsection{Effects of high impact and pathogenic variants}
 We found that pathogenic variants annotated by ClinVar\cite{landrumClinVarImprovingAccess2018} and VKGL\cite{fokkemaDutchGenomeDiagnostic2019} showed allelic imbalance more often than VUS and benign variants. One possible explanation for this is that if the expression of the gene in which the variant is located is altered, this gene could more likely have a phenotypic effect. These variants are only possible to exist if there is compensation for via the other allele. Since the individuals in this study were not known to have a genetic disorder, there should be some compensation for this variant, either through other genes and mechanisms or by recovery of the gene expression through the other allele. This is indeed observed for the autosomal dominant high impact variant in \textit{PRPF8}, where the major allele compensates for the much lower expression of the minor allele. We further observed that predicted high impact variants also showed allelic imbalance more often than moderate and low impact variants, which holds for all disease categories in which there was a gene with high impact variants. Also, between low and moderate impact variants, we often observed much smaller difference between the numbers of variants with allelic imbalance. Genes with high impact variants also showed higher expression on the major allele, although, due to the fact that rare variants (MAF $<$ 0.01) were not masked during read alignment, a somewhat higher expression is expected due to possible reference bias.
 
+\Needspace{10\baselineskip}
 \subsection{Limitations of our approach}
 There are several limitations to our approach. We examined a healthy population cohort to look at the effects of rare variants, but this obviously limited the number of pathogenic variants. Although we have a large sample size to look at allelic imbalance in blood samples, many effects are not shared between tissues\cite{castelModifiedPenetranceCoding2018}, which may explain why we only find allelic imbalance of pathogenic variants in certain disease categories. This suggests that RNA-Sequencing from blood, while the most readily available tissue in a clinical setting, may only be relevant for a limited number of disease phenotypes. For other diseases, the differences in allelic imbalance were not picked up in blood, most likely because the disease-relevant genes are not sufficiently expressed in this tissue. Finally, even with the relatively large number of individuals, there were only a limited number of known pathogenic variants present in the BIOS cohort. Improvements could be made by increasing the sample size of the study cohort by generating more gene expression profiles or by involving other existing datasets in the meta-analysis. 
 
+\Needspace{10\baselineskip}
 \section{Conclusion}
 We examined allele specific expression (ASE) within RNA-Seq data for the BIOS cohort in order to see if we could identify differences in ASE effects between known pathogenic or high impact variants and benign or low impact variants. In the future we would like to apply this approach to samples from the clinic to determine if ASE can help in prioritizing disease-relevant variants by identifying VUS with a large allelic imbalance and comparing it to the allelic imbalance found in the same gene for healthy individuals. We have also shown that it is possible to accurately genotype exonic variants and to subsequently phase them using RNA-Seq data, improving on the work of Deelen \textit{et al}.\cite{deelenCallingGenotypesPublic2015}. This can be an added benefit for genome diagnostics. We have also shown that it is possible to identify rare variants that have a strong effect on gene expression data, solely by using RNA-Seq data. Variants known to be pathogenic and located in genes from relevant disease categories show imbalanced allelic expression more often than benign variants in the same gene. VUS show an imbalance in allelic expression at the same or lower rates as benign variants. We hypothesize that variants within the VUS category that show allelic imbalance are more likely to be pathogenic than those that do not. Follow-up studies examining patient data would be interesting to show whether measuring RNA-expression levels in patients would help improve diagnostics.
 
+\Needspace{10\baselineskip}
 \section{Material \& Methods}
+\Needspace{10\baselineskip}
 \subsection{RNA-Seq preparation and data processing in the BIOS cohort}
 RNA sequencing methods are described in Zhernakova \textit{et al}.\cite{zhernakovaIdentificationContextdependentExpression2017} The RNA-Seq data was prepared in two different ways. For expression level quantification and mapping of reads for ASE analysis, we used the BAM files from (Zhernakova \textit{et al}. 2017). In short, the generated fastq files were first checked on read quality using FastQC\cite{andrewssimonandothersFastQCQualityControl2010} software. Second, adaptor sequences were trimmed using CutAdapt (v1.1)\cite{martinCutadaptRemovesAdapter2011} with default settings. Third, Sickle (v1.200)\cite{joshinaandfassjnandothersSickleSlidingwindowAdaptive2011} was used to remove low quality read ends. All reads were aligned using STAR v2.3.0e\cite{dobinSTARUltrafastUniversal2013}. To avoid reference mapping bias, all SNPs present in the Genome of the Netherlands (GoNL)\cite{francioliWholegenomeSequenceVariation2014} dataset with a MAF $\geq$ 0.01 were masked during alignment. Read pairs mapping to at most five positions and having at most eight mismatches were retained for downstream analyses. Subsequent gene quantification was done on Ensembl\cite{cunninghamEnsembl20192019} build v71 (which corresponds to GENCODE\cite{frankishGENCODEReferenceAnnotation2019} v16).
 For genotype calling, the alignment of RNA-Seq data was done using the UCSC genome build 37, as defined in the 1000 Genomes project (bundle 2.8, downloaded: ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/), using Hisat\cite{kimHISATFastSpliced2015} version 0.1.6-beta and default settings. Unlike the mapping for the ASE analysis, the genome was not masked. Subsequently, the SAM alignment files generated were filtered using SAMtools\cite{liSequenceAlignmentMap2009} (v1.2) to only contain uniquely mapping reads and afterwards converted to BAM format, sorted on genomic position and indexed using Picard tools\cite{broadinstitutePicardTools2016} version 1.102.
 
+\Needspace{10\baselineskip}
 \subsection{Data processing and genotype calling}
 Aligned reads were processed using several command line tools from the Picard tools v1.102 set. Aligned reads were assigned read groups using Picard tools’ AddOrReplaceReadGroups. All BAM files that passed QC were merged to a single BAM file per sample according to the QC outcome of the concordance checks from Picard’s MergeSamFiles. 
 Picard tools MarkDuplicates marked all duplicate reads, which indicate PCR artefacts, and these duplicates were not used in subsequent analysis. 
@@ -177,34 +183,43 @@ Initial haplotypes were constructed using GATK HaplotypeCaller emitting sites in
 To speed up genotype calling on cohort level, we used a custom-made Python script (\url{https://github.com/molgenis/ngs-utils/blob/master/generate\_merge\_vcf\_jobs.py}) to generate jobs that merge 200 gVCF files using GATK CombineGVCFs into a single vcf file to be used as input in the next analysis step.
 The final call set was generated using GATK GenotypeGVCFs. We used all merged gVCFs containing 200 samples each as input and set a call confidence threshold of 10.0 and an emit confidence of 20.0. This approach ensured that all individual-level SNP information required for downstream analysis were present.
 
+\Needspace{10\baselineskip}
 \subsection{Concordance between RNA-Seq genotypes and WGS genotypes}
 Phased WGS genotype VCF files were obtained from the GoNL project\cite{francioliWholegenomeSequenceVariation2014}. The 249 GoNL samples that were included for the ASE project were selected from the VCF file, and the allele frequency was recalculated. The same 249 samples were selected from the RNA-Seq-based genotype VCF files, and allele frequency was re-calculated. Plots were made using \url{https://github.com/npklein/BIOS\_ASE/blob/master/concordance\_GoNL\_DNA\_vs\_RNA.R}. 
 
+\Needspace{10\baselineskip}
 \subsection{Alignment quality control}
 FastQC (\url{http://www.bioinformatics.babraham.ac.uk/projects/fastqc/}) was used to check quality metrics, and we removed individuals with $<$ 70\% of reads mapping to exons (exon mapped/genome). To assess the alignment quality per sample the Picard Tools CollectMultipleMetrics, CollectRNA-SeqMetrics and SAMtools flagstat were executed on all sample-level BAM files.
 
+\Needspace{10\baselineskip}
 \subsection{Filtering of the genotype call set}
 We included only unrelated individuals and removed population outliers by filtering out samples $>$3 standard deviations from the average heterogeneity score. Low quality variants and sites where many samples do not have a genotype call can badly bias genotype calling and phasing. We therefore filtered all variants in the call set on two criteria: call rate of at least 50\% and per sample genotype quality of at least 20. Filtering was performed using a custom Perl script (\url{https://github.com/freerkvandijk/miscellaneous/blob/master/filterRNA-SeqCallsV2.pl}). Variants for which all genotypes were set to missing after applying the filter were completely removed from the call set. We filtered our call set to keep only biallelic sites using GATK SelectVariants with the parameters -selectType SNP and -restrictAllelesTo BIALLELIC.
 
+\Needspace{10\baselineskip}
 \subsection{eQTL and ASE replication}
 To replicate the ASE effects in eQTLs and ASE, the major and minor counts per variant were summed over all samples for SNPs where at least 30 samples are heterozygous. The ratio of the ASE effect was calculated as: (minor allele counts) / (major allele counts). The P-value was calculated with a binomial test, with 0.5 as expected value for the minor over total counts, and adjusted for multiple testing with Benjamini-Hochberg method\cite{benjaminiControllingFalseDiscovery1995}. The ASE ratio is centred on 0 so that for values $<$ 0 the minor allele has lower expression than the major allele and for values $>$ 0 the minor allele has higher expression than the major allele.
 To replicate the effect in eQTLs, cis-eQTLs were calculated in the BIOS dataset for only the SNP–gene pairs for which we obtained an ASE score for SNPs with MAF $>$ 0.01, call rate $>$ 0.95 and Hardy-Weinberg $>$ 0.0001. If the assessed allele of the eQTLs was not the same as the minor allele of the ASE SNP, the z-score was flipped. FDR for the eQTLs were calculated using a permutation strategy, as described previously in Westra \textit{et al}.\cite{westraSystematicIdentificationTrans2013} SNPs where both the ASE effect and the eQTL effect FDR were $<$ 0.05 were used in the comparison.
 To replicate the effect in GTEx, GTEx ASE counts were downloaded from the GTEx portal (\url{https://www.gtexportal.org/home/datasets}) and harmonized to the BIOS minor allele. P-values for the GTEx effects were calculated using a binomial test and corrected for multiple testing using the Benjamini-Hochberg method. For both BIOS and GTEx, SNPs were only included if at least 30 samples were heterozygous.
 To replicate ASE effects in LCL cells, an LCL ASE dataset\cite{deelenCallingGenotypesPublic2015} was downloaded from \url{https://molgenis56.target.rug.nl/menu/main/dataexplorer?entity=ASE}. LCL SNPs that overlapped with BIOS ASE SNPs and had an FDR corrected p-value $<$ 0.05 were used for comparison.
 
+\Needspace{10\baselineskip}
 \subsection{Phasing of low coverage genotype call set}
 For parallelization, the genome was chunked by selecting all genes expressed in blood (expressed gene list can be downloaded from \url{https://github.com/molgenis/molgenis-pipelines/blob/master/compute5/BIOS\_phasing/scripts/expressedGenesBlood20170213.txt}), merging the overlapping chunks, and subsequently extending the chunk range to the neighbouring chunks. All subsequent phasing steps were done per chunk. Missing genotypes were filled in with Beagle\cite{browningGenotypeImputationMillions2016} v.4.1 version 27Jul16.86a (beagleVCF). A separate VCF was generated with the phred-scaled likelihoods converted to genotype likelihoods using a custom script (\url{https://github.com/molgenis/ngs-utils/blob/master/PL\_to\_GL\_reorder.py}, adjusted from \url{https://github.com/team149/tc9/blob/master/conversion/PL2GL.py}). beagleVCF and likelihoodVCF were converted to Shapeit2 format using prepareGenFromBeagle \url{(https://mathgen.stats.ox.ac.uk/genetics\_software/shapeit/files/prepareGenFromBeagle4.tgz}). Subsequently, the converted VCF files, together with the original input VCF files, were converted to Shapeit2 format using prepareGenFromBeagle (\url{https://mathgen.stats.ox.ac.uk/genetics\_software/shapeit/files/prepareGenFromBeagle4.tgz}).
 	
+\Needspace{10\baselineskip}
 \subsection{Read-backed phasing and allelic count generation}
 Read-backed phasing can be used to improve phasing of variants, especially rare variants, that influence splicing. We used phASER\cite{castelRareVariantPhasing2016} (version 1.0.0, git version cd7daba) to perform read-backed phasing for all samples in combination with the RNA-Seq BAM files. PhASER ran with the following options: --paired-end, --gw\_phase\_method, --gw\_phase\_vcf, --baseq 10 and --mapq 255, allowing only uniquely mapped reads to be used for counting of alleles. In addition to these options, we also enabled the --unphased\_vars, which is required to run phASER Gene AE afterwards.
 phASER provides haplotypic counts for blocks of overlapping RNA reads. With GeneAE, the haplotypes that overlap a gene are summed to give a genetic feature count. For each sample and gene, the results are aggregated into a matrix with an allelic ratio for each gene and each sample. 
 
+\Needspace{10\baselineskip}
 \subsection{Job generation, execution and monitoring}
 The genotype calling from the RNA-Seq data described above was conducted by implementing all commands in bash protocols. Each protocol contains the commands, settings and variables, which are filled in during generation time by the MOLGENIS Compute framework\cite{byelasMOLGENISBasedComputational2011}. This framework enables the generation of bash scripts for use on several cluster environments by combining information from a workflow file, parameter file and sample sheet containing detailed information about samples. All pipelines can be found here: \url{https://github.com/molgenis/molgenis-pipelines/}. We used Public\_RNA-Seq\_QC, Public\_RNA-Seq\_genotypeCalling and BIOS\_phasing with commit version d44386698818cf422715db56a9b8e3da1e06d586 for all analyses. 
 
+\Needspace{10\baselineskip}
 \subsection{Annotating variants with functional information}
 Variants were annotated using SnpEff\cite{cingolaniProgramAnnotatingPredicting2012} (v4.3) with the parameters -lof, -canon, -ud 0. Subsequently, the SnpEff closest was used to annotate variants to their closest genomic region. Additional allele frequency information from ExAC and GoNL were added using a custom script (\url{https://github.com/npklein/BIOS\_ASE/blob/master/annotateVariantTablesWithExACandGoNLAlleleFrequency.pl}).
 
+\Needspace{10\baselineskip}
 \subsection{Processing allelic counts}
 A walkthrough of all steps can be found at \url{https://github.com/npklein/BIOS\_ASE}. GeneAE counts from phASER\cite{castelRareVariantPhasing2016} were converted to a matrix with haplotype A and matrix with haplotype B counts (See \url{https://github.com/npklein/BIO\_ASE/blob/master/createCountTables.pl}). For each gene of each sample, a binomial p-value was calculated using a two-sided binomial test with expected proportion = 0.5 and confidence level = 0.95. P-values were corrected for multiple testing using Benjamini-Hochberg method\cite{benjaminiControllingFalseDiscovery1995} (\url{https://github.com/npklein/BIOS\_ASE/blob/master/ASE\_binomial\_test/binom\_test.R}). For each of our samples, the number of genes with a significant ASE effect were counted, and five samples with $>$ 500 genes with an ASE effect were filtered out based on visual identification of outlier samples (\url{https://github.com/npklein/BIOS\_ASE/blob/master/createGenesAndOutliersTable.pl} and \url{https://github.com/npklein/BIOS\_ASE/blob/master/removeOutliersAndCODAM.R}). In addition, one sample was removed because it had a very low genotype concordance with the WGS data. For all 3,810 samples, the haplotype A and B counts were harmonized against the reference genome after filtering (\url{https://github.com/npklein/BIOS\_ASE/blob/master/minor\_allele\_ratio/createTable.pl}). SNPs were annotated with ClinVar pathogenicity information (v2018-Nov-16), CADD scores\cite{kircherGeneralFrameworkEstimating2014} and SnpEff information (\url{https://github.com/npklein/BIOS\_ASE/blob/master/minor\_allele\_ratio/annotateCountsWithCADD.pl}), and genes in which SNPs are located were annotated with OMIM disease information (\url{https://github.com/npklein/BIOS\_ASE/blob/master/figure\_2\_and\_3/OMIM\_enrichment.py}). For the different impact categories of ClinVar, allele ratios were calculated per impact category (\url{https://github.com/npklein/BIOS\_ASE/blob/master/minor\_allele\_ratio/plot\_minor\_vs\_major\_20190129.R}). Per disease category, we calculated the enrichment of genes that show an ASE effect (\url{https://github.com/npklein/BIOS\_ASE/blob/master/figure\_2\_and\_3/enrichment\_disease\_genes\_in\_outliers\_per\_category.py}). 
 

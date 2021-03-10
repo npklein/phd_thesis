@@ -1,4 +1,4 @@
-\chapterfont{\color{DarkOrange}}  % sets colour of chapter
+\chapterfont{\huge\color{DarkOrange}}  % sets colour of chapter
 \sectionfont{\color{DarkOrange}}  % sets colour of sections
 \subsectionfont{\color{DarkOrange}}  % sets colour of subsections
 
@@ -25,44 +25,32 @@
 		\put(350.5,-191.5){ 6 }
 }}
 
+\cleardoublepage
+\makeatletter
+\let\savedchap\@makechapterhead
+\def\@makechapterhead{\vspace*{-3cm}\savedchap}
 \chapter[Brain expression quantitative trait locus and network analysis reveals downstream effects and putative drivers for brain-related diseases ]{Brain expression quantitative trait locus and network analysis reveals downstream effects and putative drivers for brain-related diseases}
-\chaptermark{}
 
+\chaptermark{}
+\let\@makechapterhead\savedchap
+\makeatletter
 \label{chap:chapter5-brain}
 
 \hfill \underline{bioRxiv} 2020 Sep 20;
 
 \hfill DOI: \href{https://doi.org/10.1101/2021.03.01.433439 }{2021.03.01.433439}
 
-\noindent
+
+Niek de Klein\textsuperscript{*}, Ellen A. Tsai\textsuperscript{*}, Martijn Vochteloo\textsuperscript{\$}, Denis Baird\textsuperscript{\$}, Yunfeng Huang, Chia-Yen Chen, Sipko van Dam, Patrick Deelen, Olivier B. Bakker, Omar El Garwany, Zhengyu Ouyang, Eric E. Marshall, Maria Zavodszky, Wouter van Rheenen, Mark K. Bakker, Jan Veldink, Tom R. Gaunt, Heiko Runz\textsuperscript{\#}, Lude Franke\textsuperscript{\#}, Harm-Jan Westra\textsuperscript{\#}
 \\
 \\
-
-Niek de Klein\textsuperscript{1,4,6,10}, Ellen A. Tsai\textsuperscript{2,10}, Martijn Vochteloo\textsuperscript{1,3,10}, Denis Baird\textsuperscript{2,9,10}, Yunfeng Huang\textsuperscript{2}, Chia-Yen Chen\textsuperscript{2}, Sipko van Dam\textsuperscript{1,5}, Patrick Deelen\textsuperscript{1}, Olivier B. Bakker\textsuperscript{1}, Omar El Garwany\textsuperscript{1,6}, Zhengyu Ouyang\textsuperscript{7}, Eric E. Marshall\textsuperscript{2}, Maria Zavodszky\textsuperscript{2}, Wouter van Rheenen\textsuperscript{8}, Mark K. Bakker\textsuperscript{8}, Jan Veldink\textsuperscript{8}, Tom R. Gaunt\textsuperscript{9}, , Heiko Runz\textsuperscript{2,12}, Lude Franke\textsuperscript{1,4,12}, Harm-Jan Westra\textsuperscript{1,4,12}
-
-
-
-
-
-
-\noindent
-1. Department of Genetics, University Medical Center Groningen, University of Groningen, Hanzeplein 1, Groningen, The Netherlands \\
-2. \textit{trans}lational Biology, Research \& Development, Biogen Inc., 225 Broadway, Cambridge, MA, USA \\
-3. Institute for Life Science \& Technology, Hanze University of Applied Sciences, Zernikeplein 11, 9747 AS Groningen, The Netherlands \\
-4. Oncode Investigator \\
-5. Ancora Health, Herestraat 106, 9711 LM, Groningen, The Netherlands \\
-6. Wellcome Sanger Institute, Wellcome Genome Campus, Hinxton, UK \\
-7. BioInfoRx, Inc., 510 Charmany Dr, Suite 275A, Madison, WI 53719, USA \\
-8. Department of Neurology, UMC Utrecht Brain Center, University Medical Center Utrecht, Utrecht University, Utrecht, The Netherlands.
-9. MRC Integrative Epidemiology Unit, Bristol Medical School, University of Bristol, Bristol, UK
-10. These authors contributed equally \\
-11. These authors contributed equally \\
-12. These authors jointly supervised the work 
-\\
-\\
+* These authors contributed equally to this work. \\
+\$ These authors contributed equally to this work. \\
+\# These authors jointly directed this work
 
 \newpage
 
+\Needspace{10\baselineskip}
 \section*{Abstract}
 Gaining insight into the downstream consequences of non-coding variants is an essential step towards the identification of therapeutic targets from genome-wide association study (GWAS) findings.  Here we have harmonized and integrated 8,727 RNA-seq samples with accompanying genotype data from multiple brain-regions from 14 datasets. This sample size enabled us to perform both \textit{cis}- and \textit{trans}-expression quantitative locus (eQTL) mapping. Upon comparing the brain cortex \textit{cis}-eQTLs (for 12,307 unique genes at FDR $<$ 0.05) with a large blood \textit{cis}-eQTL analysis (n=31,684 samples), we observed that brain eQTLs are more tissue specific than previously assumed. 
 
@@ -74,6 +62,7 @@ We also generated a brain-specific gene-coregulation network that we used to pre
 
 This study represents a valuable and unique resource for post-GWAS research aimed at brain related traits. All eQTL summary statistics and the brain specific co-regulation network are publicly available at \url{www.metabrain.nl}. 
 
+\Needspace{10\baselineskip}
 \section{Introduction}
 Diseases of the brain manifesting as psychiatric or neurological conditions continue to be a massive global health burden: The World Health Organization estimates that in 2019 globally 280 million individuals were affected by depression, 39.5 million by bipolar disorder, and 287.4 million by schizophrenia\cite{vosGlobalBurden3692020}. Likewise, while 50 million people are living with dementia today, this is expected to rise to 152 million by 2050\cite{WorldAlzheimerReport2018}, with similar trajectories for other neurodegenerative diseases. While substantial progress has been made in uncovering the genetic basis of psychiatric and neurodegenerative diseases through genome-wide association studies (GWAS), much of how the identified genetic variants impact brain function is still unknown.
 
@@ -92,7 +81,9 @@ To facilitate future studies, we have made all summary statistics and the co-exp
 \end{figure}
 
 
+\Needspace{10\baselineskip}
 \section{Results}
+\Needspace{10\baselineskip}
 \subsection{Leveraging public RNA-seq and genotype data to create large, harmonized brain eQTL and gene co-regulation datasets}
 We combined 15 eQTL datasets into the ‘\textit{MetaBrain}’ resource to maximize statistical power to detect eQTLs, and to create a brain specific gene coregulation network (\textbf{Figure \ref{metabrain_fig2}; Supplementary table 1, Supplementary figures 1-5}). \textit{MetaBrain} includes 7,604 samples from the AMP-AD consortium\cite{hodesAcceleratingMedicinesPartnership2016} (AMP-AD MAYO\cite{hodesAcceleratingMedicinesPartnership2016}, ROSMAP\cite{hodesAcceleratingMedicinesPartnership2016} and MSBB\cite{hodesAcceleratingMedicinesPartnership2016}), Braineac\cite{ramasamyGeneticVariabilityRegulation2014}, the PsychENCODE consortium\cite{consortium*RevealingBrainMolecular2018} (Bipseq\cite{wangComprehensiveFunctionalGenomic2018}, BrainGVEX\cite{wangComprehensiveFunctionalGenomic2018}, CMC\cite{fromerGeneExpressionElucidates2016}, GVEX, and UCLA\_ASD\cite{wangComprehensiveFunctionalGenomic2018}), BrainSeq\cite{brainseq2015}, NABEC\cite{gibbsAbundantQuantitativeTrait2010}, TargetALS\cite{prudencioDistinctBrainTranscriptome2015}, and GTEx\cite{donovanCellularDeconvolutionGTEx2020}. Additionally, we carefully selected 1,759 brain RNA-seq samples from the European Nucleotide Archive (ENA)\cite{leinonenEuropeanNucleotideArchive2011}, calling and imputing genotypes based on the RNA-seq alignment (\textbf{Supplementary Note, Supplementary Figure 2-3}). Out of the 9,363 included RNA-seq samples, 8,727 remained after realignment and stringent quality control (\textbf{Supplementary Note}). We corrected the RNA-seq data for technical covariates, permitting us to define 7 major tissue groups (amygdala, basal ganglia, cerebellum, cortex, hippocampus, hypothalamus and spinal cord): PCA on the RNA-seq data showed clear clustering by these major tissue groups, resembling brain physiology (\textbf{Figure \ref{metabrain_fig2}D, Supplementary Figure 4}). Genotype data revealed individuals from different ethnicities (\textbf{Figure \ref{metabrain_fig2}B, Supplementary Figure 5}), including 5,138 samples from European descent (EUR), and 805 samples from African descent (AFR). Based on these sample characteristics, we created 7 eQTL discovery datasets: Basal ganglia-EUR (n=208), Cerebellum-EUR (n=492), Cortex-EUR (n=2,970), Cortex-AFR (n=420), Hippocampus-EUR (n=168) and Spinal cord-EUR (n=108; \textbf{Supplementary Table 1, Figure \ref{metabrain_fig2}C}). \emph{Cis}-eQTLs were not calculated for amygdala and hypothalamus tissue groups due to the small sample size (n$<$100). 
 
@@ -102,6 +93,7 @@ We combined 15 eQTL datasets into the ‘\textit{MetaBrain}’ resource to maxim
 	\label{metabrain_fig2}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \subsection{41\% of the cortex eQTL genes are regulated by multiple independent variants}
 Within each discovery dataset, we performed a sample-size weighted \textit{cis}-eQTL meta-analysis on common variants (MAF$>$1\%), within 1 megabase (Mb) of the transcription start site (TSS) of a protein-coding gene. We identified 1,317 (Basal ganglia-EUR), 6,865 (Cerebellum-EUR), 5,440 (Cortex-AFR), 11,803 (Cortex-EUR), 990 (Hippocampus-EUR), and 811 (Spinal cord-EUR) \textit{cis}-eQTLs genes (FDR$<$0.05; \textbf{Figure \ref{metabrain_fig3}A; Supplementary Table 2}). eQTL effect directions were highly concordant between datasets included in the Cortex-EUR meta-analysis (Spearman r$>$0.59; allelic concordance$>$72\%; \textbf{Supplementary Figure 6}), indicating robustness of the identified effects across datasets. We noted that our alignment strategy excluded some \textit{cis}-eQTLs, such as the \textit{MAPT} locus (\textbf{Supplementary Note, Supplementary Figures 7-9}). We next performed conditional analysis to identify independent associations in each eQTL locus (e.g. secondary, tertiary and quaternary eQTLs). In Cortex-EUR, 4,791 genes had a significant secondary eQTL (41\% of \textit{cis}-eQTL genes identified in this dataset). 1,658 genes had tertiary and 598 had quaternary \textit{cis}-eQTLs. We also identified secondary associations for the other discovery datasets albeit to a lesser extent (\textbf{Figure \ref{metabrain_fig3}A, Supplementary Table 2 and 3}).  
 
@@ -115,6 +107,7 @@ We investigated differences in cis-eQTLs due to ancestry, brain region, data set
 	\label{metabrain_fig3}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \subsection{8\% of Cortex \textit{cis}-eQTLs are mediated by cell type proportion differences  }
 Cell type dependent eQTLs can be identified in bulk RNA-seq data by performing cell type deconvolution and determining cell type interaction eQTLs (ieQTLs)\cite{donovanCellularDeconvolutionGTEx2020,glastonburyCellTypeHeterogeneityAdipose2019,raulaguirregamboaDeconvolutionBulkBlood2020}. We predicted five major cell types using single cell RNA-seq derived signature profiles\cite{zhengyuCellMapCharacterizingType}. Of these, neurons were the most abundant cell type (median cell proportion: 32.8\%), followed by endothelial cells (24.9\%), macrophages (17.8\%), oligodendrocytes (12.4\%), astrocytes (12.1\%; \textbf{Supplementary Figure 14}). We predicted similar proportions for cerebellum as well as other brain regions. We observed that predicted cell proportions are different for spinal cord, showing a relatively low proportion of neuronal cells and high proportions of macrophage and oligodendrocytes compared to other brain tissues, as was previously reported\cite{bahneyCellularCompositionGliaNeuron2018} (\textbf{Supplementary Figures 15 and 16}). Predicted neuron proportions in both cortex and cerebellum were negatively correlated with the predicted proportions of other cell types, and predicted endothelial cell proportions were negatively correlated with predicted macrophage proportions (\textbf{Figure \ref{metabrain_fig4}A}). Predicted cell type proportions were positively correlated with immunochemistry (IHC) counts from the ROSMAP cohort\cite{patrickDeconvolvingContributionsCelltype2020}, both overall (Spearman r = 0.71; \textbf{\ref{metabrain_fig4}B}), and per individual cell type (Spearman r$>$0.1; \textbf{\ref{metabrain_fig4}}).  It is difficult to validate these cell type proportion predictions due to the small scale of the IHC experiment, but also because IHC and bulk RNA-seq reflect different aspects of gene or protein expression. Thus, there is a level of uncertainty for the expected proportion for each cell type\cite{herculano-houzelHumanBrainNumbers2009,vonbartheldSearchTrueNumbers2016}. 
 
@@ -128,6 +121,7 @@ We compared the allelic direction of the identified ieQTLs for each cell type wi
 	\label{metabrain_fig4}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \subsection{Shared genetic effects between Cortex-EUR \textit{cis}-eQTLs and brain-related traits}
 
 As one application of the \textit{MetaBrain} resource, we linked \textit{cis}-eQTLs to variants associated with neurological traits and diseases. For this, we first evaluated linkage disequilibrium (LD) between the Cortex-EUR \textit{cis}-eQTL SNPs with the strongest association signals and index variants identified in 3,217 GWASs of brain-related traits (\textbf{Supplementary Note, Supplementary Table 10}). We observed that 10\% of brain-related trait SNPs for 242 eQTL genes were in LD with \textit{cis}-eQTL SNPs (r2$>$0.8). This percentage marginally increased to 12\% when secondary, tertiary and quaternary eQTL SNPs were included, indicating that the majority of LD overlap is driven by primary eQTL effects: primary eQTLs were 3.3-fold more likely to be in LD with a GWAS SNP (Fisher exact test p-value = $6.2 \times 10^{-16}$; \textbf{Supplementary Note}). 
@@ -215,11 +209,13 @@ To more formally test for overlap between GWAS and eQTL signals, we next impleme
 	\end{tabular}}
 \end{table}
 
+\Needspace{10\baselineskip}
 \subsection{MR comparison between blood and brain eQTL datasets}
 MR analysis for multiple sclerosis (MS) identified 157 instruments that passed the suggestive threshold of $p<5 \times 10^{-5}$, representing 135 unique genes (\textbf{Supplementary Table 12}). 20 of these findings passed colocalization (\textbf{Table 1; Figure \ref{metabrain_fig5}B}). This included 11 genes for which MR suggested that increased gene expression and 9 genes where decreased gene expression leads to MS risk. Systematic comparison of the MR Wald ratio estimates for MS of 5,919 shared eQTL genes between Cortex-EUR and eQTLGen\cite{vosaUnravelingPolygenicArchitecture2018} (where the same gene was instrumented but could be with different SNPs) showed opposite directions of effect for 2,373 (39.6\%) genes (\textbf{Supplementary Figure 23, Supplementary Table 14}).  Agreement improved when the same SNP instrument was compared on between studies but still remained high with 1,891 (26\%) out of 7,274 \textit{MetaBrain} Wald ratios showing opposite directionality to eQTLGen (\textbf{Supplementary Table 15}). The notable discordance in the directionality of the blood and brain eQTLs underscore the importance of tissue-specific differences when interpreting transcriptomics data. 
 
 Of the 135 genes with MR findings in Cortex-EUR for MS, there were 28 genes without a significant eQTLgen instrument including 3 genes (\textit{SLC12A5}, \textit{CCDC155} and \textit{MYNN}) for which we found both MR significance and colocalization in \textit{MetaBrain} (\textbf{Supplementary Note, Supplementary Table 16}). Comparing blood and brain gene expression levels for these genes in GTEx, \textit{SLC12A5} had almost no expression in blood, while expression was comparable between tissues for \textit{CCDC155} and \textit{MYNN} (\textbf{Supplementary Note, Supplementary Figure 24}).The discrepancy in MR findings observed between Cortex-EUR and eQTLgen suggest tissue-dependent genetic effects for MS. 
 
+\Needspace{10\baselineskip}
 \subsection{MR and colocalization analysis links multiple sclerosis GWAS loci to cell type specific eQTLs for \textit{CYP24A1} and \textit{CLECL1} }
 
 Two MS genes, \textit{CYP24A1} and \textit{CLECL1}, showed cell-type specific eQTLs (\textbf{Figure \ref{metabrain_fig5}C and D}). Another gene that was previously suggested to be neuron specific\cite{internationalmultiplesclerosisgeneticsGeneticRiskPrimary2011}, \textit{SLC12A5}, did not show a significant ieQTL in our data. Our analysis used rs2259735 as the Cortex-EUR eQTL instrument variable and suggested that higher expression of \textit{CYP24A1} is associated with increased MS risk (MR Wald ratio= 0.13, $p=1.7 \times 10^{-9}$. We also observed colocalization of the eQTL and the MS GWAS signal at this region (Coloc PP4=0.99), suggesting the same underlying genetic signal. Furthermore, ieQTL analysis showed increasing expression of \textit{CYP24A1} with increasing neuronal proportions for the MS risk factor rs2248137 (interaction beta=2.85; interaction FDR=$p=1 \times 10^{-308}$; \textbf{Figure \ref{metabrain_fig5}C}). Rs2248137 has previously been associated with MS\cite{consortiumMultipleSclerosisGenomic2019} and is in strong LD with SNP rs2259735 ($r^{2}$=0.9). \textit{CYP24A1} is a mitochondrial cytochrome P450 hydroxylase that catalyzes the inactivation of 1,25-dihydroxyvitamin D3 (calcitriol), the active form of vitamin D\cite{jones25HydroxyvitaminD24hydroxylaseCYP24A12012}. Loss of function mutations in \textit{CYP24A1} increase serum calcitriol and cause hereditary vitamin D-mediated PTH-independent hypercalcemia\cite{schlingmannMutationsCYP24A1Idiopathic2011,cappellaniHereditaryHypercalcemiaCaused2019}. In the brain, vitamin D plays vital functions in regulating calcium-mediated neuronal excitotoxicity, reducing oxidative stress, and regulating synaptic activity\cite{mpandzouVitaminDeficiencyIts2016}. Epidemiological studies have proposed vitamin D deficiency as a risk factor for MS\cite{agnelloCYP27A1CYP24A1RXRalpha2018,pierrot-deseillignyHypovitaminosisOneEnvironmental2010}, which has recently been validated through MR\cite{rheadMendelianRandomizationShows2016,jacobsBMILowVitamin2020,jiangCausalRoleCirculating2021}.  Our findings are consistent with a previous report of a shared MS GWAS signal and \textit{CYP24A1} eQTL signal in the region with frontal cortex but not white matter, using brain eQTL data sets derived from expression microarrays to confirm the findings in the same direction of effect\cite{ramasamyGeneticEvidencePathogenic2014}.  
@@ -232,6 +228,7 @@ As another MS signal that passed MR and colocalization, decreased expression of 
 	\label{metabrain_fig5}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \subsection{\textit{MetaBrain}  allows for the identification of \textit{trans}-eQTLs }
 \textit{Trans}-eQTL analysis can identify the downstream transcriptional consequences of disease associated variants. However, we have previously observed in blood that \textit{trans}-eQTL effect-sizes are usually small. Here we studied whether this applies to brain as well. In order to maximize sample size and statistical power, we performed a \textit{trans}-eQTL analysis in 3,111 unique individuals. We reduced the number of tests performed by limiting this analysis to 130,968 unique genetic variants that are likely to affect gene expression in trans: these include variants that have been previously found to be associated with diseases and complex traits through GWAS and variants that were primary, secondary, tertiary or quaternary lead \textit{cis}-eQTL SNPs from any of the aforementioned discovery datasets.  
 
@@ -253,6 +250,7 @@ This is the first report of \textit{trans}-eQTLs in the brain cortex for many of
 	\label{metabrain_fig6}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \subsection{Brain co-regulation networks improve GWAS interpretation}
 We generated brain-region specific co-regulation networks based on the RNA-seq data from the 8,544 samples (\textbf{Supplementary Note, Supplementary Figures 29-30}). We previously have done this for a heterogenous set of RNA-seq samples spanning across all available tissue types and cell lines (n=31,499)\cite{persBiologicalInterpretationGenomewide2015,deelenImprovingDiagnosticYield2019}, which showed that such a co-regulation network can be informative for interpreting GWAS studies\cite{persBiologicalInterpretationGenomewide2015} and helpful in the identification of new genes that cause rare diseases\cite{deelenImprovingDiagnosticYield2019}. 
 	
@@ -270,6 +268,7 @@ For MS, the heterogeneous network, including many blood and immune cell type sam
 	\label{metabrain_fig7}
 \end{figure}
 
+\Needspace{10\baselineskip}
 \section{Discussion}
 
 We here describe an integrated analysis of the effects of genetic variation on gene expression levels in brain in over 3,000 unique individuals. This sample size yielded sufficient statistical power to identify robust \textit{cis}-eQTL and to our knowledge for the first-time brain \textit{trans}-eQTLs that emanate from SNPs that have been previously linked to neurodegenerative or psychiatric phenotypes. 
@@ -288,12 +287,15 @@ Our study had several limitations. For instance, we performed single tissue eQTL
 
 With the numbers of GWAS loci for brain-related traits and diseases steadily climbing, we expect that our resource will prove itself as a highly valuable toolkit for post-GWAS brain research and beyond. Among others, we demonstrate how our dataset can be utilized to disambiguate GWAS loci, point to causal pathways and prioritize targets for drug discovery. To our knowledge, this is the largest non-blood eQTL analysis ever conducted, providing insights into the functional consequences of many disease associated variants. We expect that through future integration with single-cell eQTL studies that have higher resolution but lower power, our results will help to pinpoint transcriptional effects in specific brain cell types for many disease-associated genetic variants. 
 
+\Needspace{10\baselineskip}
 \section{Material \& Methods}
+\Needspace{10\baselineskip}
 \subsection{Dataset collection and description }
 We collected human brain bulk RNA-seq datasets from different resources. Briefly, we collected previously published samples from the AMP-AD consortium (AMP-AD MAYO\cite{hodesAcceleratingMedicinesPartnership2016}, ROSMAP\cite{hodesAcceleratingMedicinesPartnership2016} and MSBB\cite{hodesAcceleratingMedicinesPartnership2016}) and the PsychENCODE consortium (Bipseq\cite{wangComprehensiveFunctionalGenomic2018}, BrainGVEX\cite{wangComprehensiveFunctionalGenomic2018}, CMC\cite{fromerGeneExpressionElucidates2016}, GVEX, LIBD, and UCLA\_ASD\cite{wangComprehensiveFunctionalGenomic2018}) from Synapse.org using the Python package synapseclient\cite{teamSynapseclientClientSynapse}. The NABEC and GTEx datasets were retrieved from NCBI dbGaP, and TargetALS was provided directly by the investigators. For an overview of the number of samples per dataset, see \textbf{Supplementary Table 1}. 
 
 Additionally, we collected public brain bulk RNA-seq samples from the European Nucleotide Archive (ENA; \textbf{Supplementary Table 28}). To select only the brain samples, we first downloaded the SkyMap database\cite{tsuiExtractingAllelicRead2018}, which provides readily mapped read counts and sample annotations. We performed rigorous quality control on this dataset, and selected ENA, excluding for example brain cell lines, brain cancer samples, and samples with RNA spike ins (See \textbf{Supplementary Note} for more details on this method, \textbf{Supplementary Figure 1}), resulting in 1,759 samples, and 9,363 samples when combined with the previously published datasets \textbf{Supplementary Table 1}. 
 
+\Needspace{10\baselineskip}
 \subsection{RNA-seq data}
 RNAseq data was processed using a pipeline built with molgenis-compute\cite{byelasMOLGENISBasedComputational2011}. FastQ files were aligned against the GENCODE\cite{frankishGENCODEReferenceAnnotation2019} v32 primary assembly with STAR\cite{dobinSTARUltrafastUniversal2013} (version 2.6.1c), while excluding patch sequences (see \textbf{Supplementary Note}) with parameter settings: outFilterMultimapNmax = 1, twopassMode Basic, and outFilterMismatchNmax = 8 for paired-end sequences, outFilterMismatchNmax = 4 for single-end sequences. Gene quantification was performed by STAR, similar to gene quantification using HTSeq\cite{andersHTSeqPythonFramework2015} with default settings. The gene counts were then TMM\cite{robinsonScalingNormalizationMethod2010} normalized per cohort using edgeR\cite{robinsonEdgeRBioconductorPackage2010} (version 3.20.9) with R\cite{rcoreteamLanguageEnvironmentStatistical2017} (version 3.5.1). 
 
@@ -306,6 +308,7 @@ We next removed genes with no variation and then log2-transformated, quantile no
 
 Our collection of RNA-seq samples consisted of 36 different tissue labels, many of which were represented by only a few samples. Therefore, we next defined major brain regions present in our dataset, including samples from amygdala, basal ganglia, cerebellum, cortex, hippocampus and spinal cord. We noted that some samples (especially from ENA) were not annotated with a specific major brain region. To resolve this, we performed PCA over the sample correlation matrix and then performed k-nearest neighbors on the first two PCs (k=7) to classify samples to the major brain regions. Using this approach, we defined a set of 86 amygdala, 574 basal ganglia, 723 cerebellum, 6,601 cortex, 206 hippocampus, 252 hypothalamus and 285 spinal cord samples (\textbf{Supplementary Table 1, Figure \ref{metabrain_fig2}A}). 
 
+\Needspace{10\baselineskip}
 \subsection{Genotype data and definition of eQTL datasets}
 The genotype data for the included datasets was generated using different platforms, including genotypes called from whole genome sequencing (WGS; AMP-AD, TargetALS\cite{prudencioDistinctBrainTranscriptome2015}, GTEx\cite{consortiumGTExConsortiumAtlas2020}), genotyping arrays (NABEC\cite{gibbsAbundantQuantitativeTrait2010}, Braineac\cite{ramasamyGeneticVariabilityRegulation2014}), and haplotype reference consortium (HRC)\cite{mccarthyReferencePanel642016} imputed genotypes (PsychENCODE datasets), or were called from RNA-seq directly (ENA dataset; see \textbf{Supplementary Note}). In total, 22 different genotyping datasets were available, reflecting 6,658 genotype samples (\textbf{Supplementary Table 1}).  
 
@@ -316,6 +319,7 @@ In each dataset, we removed genetically similar individuals by removing individu
 For the purpose of eQTL analysis, we next assessed links between RNA-seq and genotype samples and noted that some individuals had multiple RNA-seq samples (e.g. from multiple brain regions) or multiple genotype samples (e.g. from different genotyping platforms). In total, we were able to determine 7,644 links between RNA-seq samples and genotype samples (Supplementary Table 1), reflecting 3,525 unique EUR individuals, 624 unique AFR individuals, and 510 unique individuals assigned to other ethnicities. We then grouped linked RNA-seq samples based on ethnicity and tissue group to prevent possible biases on eQTL results. For those individuals with multiple linked RNA-seq samples, we selected a sample at random within these groups. Within each tissue and ethnicity group, we then selected unique genotype samples across datasets in such a way to maximize sample size per genotype dataset. For the eQTL analysis per tissue, we only considered those datasets having more than 30 unique linked samples available, and for which at least two independent datasets were available. Using these criteria for sample and dataset selection, we were able to create 7 eQTL discovery datasets: Basal ganglia-EUR (n=208), Cerebellum-EUR (n=492), Cortex-EUR (n=2,970), Cortex-AFR (n=420), Hippocampus-EUR (n=168) and Spinal cord-EUR (n=108; \textbf{Supplementary Table 1, Figure \ref{metabrain_fig2}C}). 
 
 
+\Needspace{10\baselineskip}
 \subsection{eQTL analysis}
 Our dataset consists of different tissues and ethnicities, and samples have been collected in different institutes using different protocols. Consequently, combining these datasets to perform eQTL analysis is complicated, due to possible biases each of these factors may introduce. To resolve this issue, we opted to perform an eQTL meta-analysis within each of the defined eQTL discovery datasets. To reduce the effect of possible gene expression outliers, we calculated Spearman’s rank correlation coefficients for each eQTL in each dataset separately, and then meta-analyzed the resulting coefficients using a sample size weighted Z-score method, as described previously\cite{vosaUnravelingPolygenicArchitecture2018}. While we acknowledge that this method may provide less statistical power than the commonly used linear regression, we chose this method to provide conservative effect estimates. To identify \textit{cis}-eQTLs, we tested SNPs located within 1 megabases (Mb) of the \textit{trans}cription start site, while for the identification of \textit{trans}-eQTLs, we required this distance to be at least 5mb. For both analyses, we selected variants having a MAF$>$1\%, and a Hardy-Weinberg p-value $>$ 0.0001. Using the GENCODE v32 annotation, we were able to quantify 58,243 genes, of which 19,373 are protein coding. While non-coding genes have been implicated to be important for brain function76, these genes generally have poor genomic and functional annotations, meaning that it is often unknown in which pathway they function, and that there is uncertainty about their genomic sequence. We therefore focused our eQTL analyses on protein coding genes. 
 
@@ -325,27 +329,33 @@ Since \textit{cis}-eQTL loci are known to often harbor multiple independent asso
 
 Since a genome-wide \textit{trans}-eQTL analysis would result in a large multiple testing burden considering the billions of potential tests, we limited this analysis to a set of 140,000 variants we considered to have a high probability of being \textit{trans}-eQTLs. This set constituted of variants that were either previously associated with traits, having a GWAS p-value $<$ 5x10-8 in available the IEU GWAS database\cite{lyonVariantCallFormat2020} and EBI GWAS catalog\cite{bunielloNHGRIEBIGWASCatalog2019} on May $3^{rd}$, 2020), and additional neurological traits (see \textbf{Supplemental Table 17}) or were showing an association with FDR$<$0.05 in any of our discovery \textit{cis}-eQTL analyses (including secondary, tertiary and quandary associations identified in the iterative conditional analysis).  \textit{Cis}-eQTLs in Cortex-EUR were highly concordant when replicated in Cortex-AFR (\textbf{Figure \ref{metabrain_fig3}C}). Consequently, to maximize the sample size and statistical power, we meta-analyzed Cortex-EUR and Cortex-AFR datasets together. However, for the \textit{trans}-eQTL analysis we omitted ENA, to prevent bias by genotypes called from RNA-seq samples. Additionally, For the \textit{trans}-eQTL analysis, we did not correct the gene expression data for 10 PCs, since \textit{trans}-eQTLs can be driven by cell proportion differences\cite{vosaUnravelingPolygenicArchitecture2018}, and many of the first 10 PCs in the \textit{MetaBrain}  dataset were correlated with estimated cell type proportions (\textbf{Supplementary Figure 32}). To test for \textit{trans}-eQTLs, we assessed those combinations of SNPs and genes where the SNP-TSS distance was $>$5 Mb, or where gene and SNP were on different chromosomes. We note that we did not evaluate eQTLs where the SNP-TSS distance was $>$1 Mb and $<$5 Mb, which potentially excludes detection of long-range \textit{cis}-eQTLs or short-range \textit{trans}-eQTLs. We expect however, that this excludes only a limited number of eQTLs, since we observed that this distance was $<$31Kb for 50\% of \textit{cis}-eQTLs (\textbf{Figure \ref{metabrain_fig3}B)}, indicating most \textit{cis}-eQTLs are short-ranged. Additionally, we reasoned that the $>$5 Mb cutoff would prevent identification of false-positive \textit{trans}-eQTLs due to long-range LD.  
 
+\Needspace{10\baselineskip}
 \subsection{Estimation of cell count proportions using non-negative least squares}
 By leveraging the cell type specific gene expression collected through scRNA-seq, a bulk tissue sample can be modelled as a parts-based representation of the distinct cell types it consists of. In such a model, the weights of each part (i.e. cell type proportions) can be determined by deconvolution. In the deconvolution of the \textit{MetaBrain} bulk expression data we used a single-cell derived signature matrix including the five major cell types in the brain: neurons, oligodendrocytes, macrophages, endothelial cells and astrocytes. This signature matrix was generated in the context of the CellMap project (Zhengyu Ouyang \textit{et al}.; manuscript in preparation). In short, we created pseudo-bulk expression profiles by extracting gene expression values for specific cell types of interest from annotated single cell and single nuclei expression matrices. Using differential expression analysis and applying several rounds of training and testing, we selected 1,166 differentially expressed genes and calculated the average read counts per cell type. We then filtered out genes that had no variation in expression, leaving a total of 1,132 genes. We extracted the corresponding TMM normalized gene counts of these signature genes for all European cortex samples in \textit{MetaBrain}. After correcting the counts for cohort effects using OLS, but not for any other technical covariates, we applied log2 transformation on both the signature matrix as well as the bulk gene count matrix. Subsequently we applied non-negative least squares (NNLS)\cite{lawsonSolvingLeastSquares1995} using SciPy (version 1.4.1)\cite{virtanenSciPyFundamentalAlgorithms2020} to model the bulk expression as a parts-based representation of the single-nucleus derived signature matrix. First introduced by Lawson and Hanson\cite{lawsonSolvingLeastSquares1995}, NNLS method is the basis of numerous deconvolution methods to date. In short, NNLS attempt to find a non-negative weight (coefficient) for each of the cell types that, when summed together, minimizes the least-squares distance to the observed gene counts. Lastly, we transformed the resulting coefficients into cell type proportions by dividing them over the sum of coefficients for each sample. The resulting cell proportions are then used to identify cell type mediated eQTL effects. For this we applied Decon-eQTL\cite{raulaguirregamboaDeconvolutionBulkBlood2020} (version 1.4; default parameters) in order to systematically test for significant interaction between each cell type fractions and genotype, while also controlling for the effect on expression of the other cell types. The resulting p-values are then correct for multiple testing using the Benjamini-Hochberg method on a per-cell-type basis. 
 
+\Needspace{10\baselineskip}
 \subsection{Cell type specific ROSMAP single-nucleus datasets }
 
 In order further confirm cell type specific eQTL effects, we used the ROSMAP single-nucleus data, encompassing 80,660 single-nucleus transcriptomes from the prefrontal cortex of 48 individuals with varying degrees of Alzheimer’s disease pathology\cite{mathysSinglecellTranscriptomicAnalysis2019}. We used Seurat version 3.2.2\cite{stuartComprehensiveIntegrationSingleCell2019} to analyze the data. First, we removed the genes that did not pass filtering as described previously\cite{mathysSinglecellTranscriptomicAnalysis2019}, leaving us with 16,866 genes and 70,634 cells for further analysis. After this, we normalized the expression matrix on a per individual per cell type basis using sctransform\cite{hafemeisterNormalizationVarianceStabilization2019} and visualized the normalized expression matrix using UMAP dimensionality reduction\cite{mcinnesUMAPUniformManifold2020}. We observed that cell types, as defined by Mathys \textit{et al}\cite{mathysSinglecellTranscriptomicAnalysis2019}., for the majority cluster together (\textbf{Supplementary Figures 33 and 34}). We then created expression matrices for each broad cell type (excitatory neurons, oligodendrocytes, inhibitory neurons, astrocytes, oligodendrocyte precursor cells, microglia, pericytes and endothelial cells) by calculating the average expression per gene and per individual basis. We then used these cell-type datasets for eQTL mapping using the same procedure as the bulk data. To correct for multiple testing, we confined the analysis to only test for primary \textit{cis}- and \textit{trans}-eQTLs found in \textit{MetaBrain}  cortex, while also permuting the sample labels 100 times. Lastly, we calculated the Spearman correlation between gene expression levels and genotypes and their 95\% confidence intervals\cite{bonettSampleSizeRequirements2000}.  
 
+\Needspace{10\baselineskip}
 \subsection{Single SNP Mendelian Randomization analysis}
 Mendelian Randomization (MR) was conducted between the Cortex-EUR \textit{MetaBrain}  eQTLs and 23 neurological/psychiatric traits and 8 brain volume traits from ENIGMA (\textbf{Supplementary Table 11}). Cortex-EUR eQTLs at genome-wide significant (P $< 5 \times 10^{-08}$) were selected and then LD clumped to obtain independent SNPs to form our set of instruments. LD clumping was carried out using the ld\_clump() function in the ieugwasr package (\url{https://mrcieu.github.io/ieugwasr/}) on the default settings (10,000 kb clumping window with r2 cut-off of 0.001 using the 1000 Genomes EUR reference panel). SNP associations for each of the eQTL instruments were then looked up in the outcome GWASs of interest. If the SNP could not be found in the outcome GWAS using a direct lookup of the dbSNP rsid, then a proxy search was performed to extract the next closest SNP available in terms of pairwise LD, providing minimum r2 threshold of 0.8 with the instrument. Outcome GWAS lookup and proxy search was performed using the associations() function in the ieugwasr package. To ensure correct orientation of effect alleles between the eQTL instrument and outcome GWAS associations, the SNP effects were harmonized using the harmonise\_data() in TwoSampleMR (\url{https://mrcieu.github.io/TwoSampleMR/}). Action 2 was selected which assumes that the alleles are forwarded stranded in the GWASs (i.e. no filtering or re-orientation of alleles according to frequency was conducted on the palindromic SNPs). Single SNP MR was then performed on the harmonized SNP summary statistics using the mr\_singlesnp() function in TwoSampleMR. Single SNP MR step computes a Wald ratio, which estimates the per unit change in gene expression per change in risk for the outcome, explained through the effect allele of the instrumenting SNP. We reported all the MR findings that passed the suggestive threshold of $5 \times 10^{-05}$. The threshold of significance adjusting for multiple testing correction is $p=1.865 \times 10^{-7}$. We did not implement multi-SNP analysis (such as the Inverse Variance Weighted method), because there are a small number of instrumenting SNPs available per gene, which would result in unreliable MR estimates for most of the genes. 
 
+\Needspace{10\baselineskip}
 \subsection{Colocalization}
 Following the MR analysis, colocalization analysis was performed on the MR findings that passed the suggestive threshold to determine if the eQTL and trait shared the same underlying signal. We run colocalization using both the default parameters (p1=p2=10-4 and p12=10-5) and parameters based on the number of SNPs in the region (p1=p2=1/(number of SNPs in the region) and p12 = p1 /10). We consider the two traits, eQTL and GWAS outcome, passes colocalization if either of the two parameters yields PP4 $>$0.7. Additionally, colocalization was systematically analyzed against one trait to compare to robustness of the Cortex-EUR eQTLs with existing cortex eQTL data sets (see \textbf{Supplementary Note}). 
 
+\Needspace{10\baselineskip}
 \section*{URLs}
-\textbf{Picard}: \url{http://broadinstitute.github.io/picard/}
-\textbf{dbGAP}: \url{https://dbgap.ncbi.nlm.nih.gov/}
-\textbf{European Nucleotide Archive}: \url{http://www.ebi.ac.uk/ena}
-\textbf{Metabrain}: \url{https://metabrain.nl }
-\textbf{ieugwasr package}: https://mrcieu.github.io/ieugwasr/ 
-\textbf{TwoSampleMR}: https://mrcieu.github.io/TwoSampleMR/ 
+\textbf{Picard}: \url{http://broadinstitute.github.io/picard/} \\
+\textbf{dbGAP}: \url{https://dbgap.ncbi.nlm.nih.gov/} \\
+\textbf{European Nucleotide Archive}: \url{http://www.ebi.ac.uk/ena} \\
+\textbf{Metabrain}: \url{https://metabrain.nl } \\
+\textbf{ieugwasr package}: \url{https://mrcieu.github.io/ieugwasr/} \\
+\textbf{TwoSampleMR}: \url{https://mrcieu.github.io/TwoSampleMR/ }
 
+\Needspace{10\baselineskip}
 \section*{Accessions}
 \textbf{TargetALS} TargetALS data was pushed directly from the NY Genome center to our sftp server. \\
 \textbf{CMC} CMC data was downloaded from \url{https://www.synapse.org/}. Accession code: syn2759792 \\
@@ -354,59 +364,74 @@ Following the MR analysis, colocalization analysis was performed on the MR findi
 \textbf{AMP-AD} AMP-AD data has been downloaded from synapse. Accession code: syn2580853 
 \textbf{ENA} ENA data has been downloaded from the European Nucleotide Archive.
 \textbf{CMC\_HBCC} CMC\_HBCC data was downloaded from \url{https://www.synapse.org/}. Accession code: syn10623034 \\
-\textbf{BrainSeq} BrainSeq data was downloaded from \url{https://www.synapse.org/}. Accession code: syn12299750 
-\textbf{UCLA\_ASD} UCLA\_ASD data was downloaded from \url{https://www.synapse.org/}. Accession code: syn4587609 
-\textbf{BrainGVEx} BrainGVEx data was downloaded from \url{https://www.synapse.org/}. Accession code: syn4590909 
-\textbf{BipSeq} BipSeq data was downloaded \url{from https://www.synapse.org/}. Accession code: syn5844980 
-\textbf{GTEx} GTEx data was downloaded from dbgap. Accession code: phs000424.v7.p2 
-\textbf{NABEC} NABEC data was downloaded from dbgap. Accession code: phs001301.v1.p1 
-\textbf{CellMap} single-cell and single-nuclei RNA-seq datasets were downloaded from Gene Expression Omnibus (GEO), BioProject, the European Genome-phenome Archive (EGA) and the Allan Brain Atlas. Accession codes: GSE97930, GSE126836, GSE103723, GSE104276, PRJNA544731, PRJNA434002, phs000424, phs001836. 
+\textbf{BrainSeq} BrainSeq data was downloaded from \url{https://www.synapse.org/}. Accession code: syn12299750 \\
+\textbf{UCLA\_ASD} UCLA\_ASD data was downloaded from \url{https://www.synapse.org/}. Accession code: syn4587609 \\
+\textbf{BrainGVEx} BrainGVEx data was downloaded from \url{https://www.synapse.org/}. Accession code: syn4590909 \\
+\textbf{BipSeq} BipSeq data was downloaded \url{from https://www.synapse.org/}. Accession code: syn5844980 \\
+\textbf{GTEx} GTEx data was downloaded from dbgap. \\
+Accession code: phs000424.v7.p2 \\
+\textbf{NABEC} NABEC data was downloaded from dbgap. \\
+Accession code: phs001301.v1.p1 \\
+\textbf{CellMap} single-cell and single-nuclei RNA-seq datasets were downloaded from Gene Expression Omnibus (GEO), BioProject, the European Genome-phenome Archive (EGA) and the Allan Brain Atlas. \\
+Accession codes: GSE97930, GSE126836, GSE103723, GSE104276, PRJNA544731, PRJNA434002, phs000424, phs001836. 
 
+\Needspace{10\baselineskip}
 \section*{Acknowledgements}
 We thank the donors of the brain tissues underlying the RNA-seq data used for this study and their families for their willingness to donate samples for research. We would like to thank the Center for Information Technology of the University of Groningen for their support and for providing access to the Peregrine high-performance computing cluster, as well as the UMCG Genomics Coordination center, the UG Center for Information Technology and their sponsors BBMRI-NL and TarGet for storage and compute infrastructure. We would like to greatly thank all researchers involved with the following projects for making their data available for use. E.A.T., Y.H., C.-Y.C, E.E.M., M.I.Z. and H.R. are employed by Biogen. D.B. and T.R.G. are supported by funding from the UK Medical Research Council (MRC Integrative Epidemiology Unit at the University of Bristol, MC\_UU\_00011/4) and a sponsored research collaboration with Biogen. L.F. is supported by grants from the Dutch Research Council (ZonMW-VIDI 917.14.374 to L.F.), by an ERC Starting Grant, grant agreement 637640 (ImmRisk), by an Oncode Senior Investigator grant and a sponsored research collaboration with Biogen. This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (grant agreement n 772376 - EScORIAL. The authors thank the Biogen CellMap team (Z. Ouyang, N. Bourgeois, E. Lyashenko, P. Cundiff, K. Li, X. Zhang, F. Casey, S. Engle, R. Kleiman, B. Zhang and M. Zavodszky) for the expertise and advice provided toward deriving the cell-type specific expression profiles. 
 
+\Needspace{10\baselineskip}
 \subsection*{ROSMAP}
 
 The results published here are in whole or in part based on data obtained from the AMP-AD Knowledge Portal (doi:10.7303/syn2580853). Study data were provided by the Rush Alzheimer’s Disease Center, Rush University Medical Center, Chicago. Data collection was supported through funding by NIA grants P30AG10161, R01AG15819, R01AG17917, R01AG30146, R01AG36836, U01AG32984, U01AG46152, the Illinois Department of Public Health, and the \textit{trans}lational Genomics Research Institute. 
-Genotype data: doi:10.1038/mp.2017.20. RNAseq: doi:10.1038/s41593-018-0154-9.  
+Genotype data: \url{doi:10.1038/mp.2017.20}. RNAseq: \url{doi:10.1038/s41593-018-0154-9}.  
 
+\Needspace{10\baselineskip}
 \subsection*{Mayo}
 
 The results published here are in whole or in part based on data obtained from the AMP-AD Knowledge Portal (doi:10.7303/syn2580853). Study data were provided by the following sources: The Mayo Clinic Alzheimer’s Disease Genetic Studies, led by Dr. Nilufer Taner and Dr. Steven G. Younkin, Mayo Clinic, Jacksonville, FL using samples from the Mayo Clinic Study of Aging, the Mayo Clinic Alzheimer’s Disease Research Center, and the Mayo Clinic Brain Bank. Data collection was supported through funding by NIA grants P50 AG016574, R01 AG032990, U01 AG046139, R01 AG018023, U01 AG006576, U01 AG006786, R01 AG025711, R01 AG017216, R01 AG003949, NINDS grant R01 NS080820, CurePSP Foundation, and support from Mayo Foundation. Study data includes samples collected through the Sun Health Research Institute Brain and Body Donation Program of Sun City, Arizona. The Brain and Body Donation Program is supported by the National Institute of Neurological Disorders and Stroke (U24 NS072026 National Brain and Tissue Resource for Parkinsons Disease and Related Disorders), the National Institute on Aging (P30 AG19610 Arizona Alzheimer’s Disease Core Center), the Arizona Department of Health Services (contract 211002, Arizona Alzheimer’s Research Center), the Arizona Biomedical Research Commission (contracts 4001, 0011, 05-901 and 1001 to the Arizona Parkinson's Disease Consortium) and the Michael J. Fox Foundation for Parkinson’s Research.  doi:10.1038/sdata.2016.89 
 
 
+\Needspace{10\baselineskip}
 \subsection*{MSBB}
 The results published here are in whole or in part based on data obtained from the AMP-AD Knowledge Portal (doi:10.7303/syn2580853). These data were generated from postmortem brain tissue collected through the Mount Sinai VA Medical Center Brain Bank and were provided by Dr. Eric Schadt from Mount Sinai School of Medicine. 
 
+\Needspace{10\baselineskip}
 \subsection*{CMC}
 
 Data were generated as part of the CommonMind Consortium supported by funding from Takeda Pharmaceuticals Company Limited, F. Hoffman-La Roche Ltd and NIH grants R01MH085542, R01MH093725, P50MH066392, P50MH080405, R01MH097276, RO1-MH-075916, P50M096891, P50MH084053S1, R37MH057881, AG02219, AG05138, MH06692, R01MH110921, R01MH109677, R01MH109897, U01MH103392, and contract HHSN271201300031C through IRP NIMH. Brain tissue for the study was obtained from the following brain bank collections: the Mount Sinai NIH Brain and Tissue Repository, the University of Pennsylvania Alzheimer’s Disease Core Center, the University of Pittsburgh NeuroBioBank and Brain and Tissue Repositories, and the NIMH Human Brain Collection Core. CMC Leadership: Panos Roussos, Joseph Buxbaum, Andrew Chess, Schahram Akbarian, Vahram Haroutunian (Icahn School of Medicine at Mount Sinai), Bernie Devlin, David Lewis (University of Pittsburgh), Raquel Gur, Chang-Gyu Hahn (University of Pennsylvania), Enrico Domenici (University of Trento), Mette A. Peters, Solveig Sieberts (Sage Bionetworks), Thomas Lehner, Stefano Marenco, Barbara K. Lipska (NIMH). 
 
+\Needspace{10\baselineskip}
 \subsection*{GTEx}
 
 The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health (commonfund.nih.gov/GTEx). Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI\\Leidos Biomedical Research, Inc. subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to the The Broad Institute, Inc. Biorepository operations were funded through a Leidos Biomedical Research, Inc. subcontract to Van Andel Research Institute (10ST1035). Additional data repository and project management were provided by Leidos Biomedical Research, Inc.(HHSN261200800001E). The Brain Bank was supported supplements to University of Miami grant DA006227. Statistical Methods development grants were made to the University of Geneva (MH090941 \& MH101814), the University of Chicago (MH090951, MH090937, MH101825, \& MH101820), the University of North Carolina - Chapel Hill (MH090936), North Carolina State University (MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University (MH101810), and to the University of Pennsylvania (MH101822). The datasets used for the analyses described in this manuscript were obtained from dbGaP at http://www.ncbi.nlm.nih.gov/gap through dbGaP accession number phs000424.v7.p2 on 02/27/2020. 
 
+\Needspace{10\baselineskip}
 \subsection*{NABEC}
 Data was collected from dbGAP accession phs001301.v1.p1, which was generated by J. R. Gibbs, M. van der Brug, D. Hernandez, B. Traynor, M. Nalls, S-L. Lai, S. Arepalli, A. Dillman, I. Rafferty, J. Troncoso, R. Johnson, H. R. Zielke, L. Ferrucci, D. Longo, M.R. Cookson, and A.B. Singleton. The NABEC dataset was generated at National Institute on Aging, Bethesda, MD, USA, Institute of Neurology, University College London, London, UK, The Scripps Research Institute, Jupiter, FL, USA, Johns Hopkins University, Baltimore, MD, USA, and the University of Maryland Medical School, Baltimore, MD, USA. NABEC was funded by Z01 AG000949-02. National Institutes of Health, Bethesda, MD, USA and Z01 AG000015-49. National Institutes of Health, Bethesda, MD, USA. 
 
+\Needspace{10\baselineskip}
 \subsection*{TargetALS}
 
 This data set was generated and supported by the following: Target ALS Human Postmortem Tissue Core, New York Genome Center for Genomics of Neurodegenerative Disease, Amyotrophic Lateral Sclerosis Association and TOW Foundation. 
 
+\Needspace{10\baselineskip}
 \subsection*{Braineac}
 
 Data was collected from doi.org/10.1038/s41467-020-14483-x, which was generated by Mina Ryten, David Zhang, and Karishma D’Sa, Sebastian Guelfi and Regina Reynolds. Mina Ryten, David Zhang, and Karishma D’Sa were supported by the UK Medical Research Council (MRC) through the award of Tenure-track Clinician Scientist Fellowship to Mina Ryten (MR/N008324/1). Sebastian Guelfi was supported by Alzheimer’s Research UK through the award of a PhD Fellowship (ARUK-PhD2014-16). Regina Reynolds was supported through the award of a Leonard Wolfson Doctoral Training Fellowship in Neurodegeneration. All RNA sequencing data performed as part of this study were generated by the commercial company AROS Applied Biotechnology A/S (Denmark). 
 
 We also would like to thank \textit{Guelfi et al.}\cite{guelfiRegulatorySitesSplicing2020} for the use of their data. 
 
+\Needspace{10\baselineskip}
 \subsection*{European Nucleotide Archive }
 
 We would like to thank all donors and their families, principal investigators and their funding bodies for each of the projects included from the European Nucleotide Archive.  
 
+\Needspace{10\baselineskip}
 \subsection*{UCLA ASD, Bipseq, BrainGVEx}
 
 Data were generated as part of the PsychENCODE Consortium supported by: U01MH103339, U01MH103365, U01MH103392, U01MH103340, U01MH103346, R01MH105472, R01MH094714, R01MH105898, R21MH102791, R21MH105881, R21MH103877, and P50MH106934 awarded to: Schahram Akbarian (Icahn School of Medicine at Mount Sinai), Gregory Crawford (Duke), Stella Dracheva (Icahn School of Medicine at Mount Sinai), Peggy Farnham (USC), Mark Gerstein (Yale), Daniel Geschwind (UCLA), Thomas M. Hyde (LIBD), Andrew Jaffe (LIBD), James A. Knowles (USC), Chunyu Liu (UIC), Dalila Pinto (Icahn School of Medicine at Mount Sinai), Nenad Sestan (Yale), Pamela Sklar (Icahn School of Medicine at Mount Sinai), Matthew State (UCSF), Patrick Sullivan (UNC), Flora Vaccarino (Yale), Sherman Weissman (Yale), Kevin White (UChicago) and Peter Zandi (JHU). 
 
+\Needspace{10\baselineskip}
 \section*{Author contributions}
 
 N.K., O.E.G, and H.W. processed the RNA-seq and genotype data. N.K. and H.W. were responsible for data management. N.K. and H.W. were responsible for the \textit{cis}-eQTL analysis. H.W. was responsible for the \textit{trans}-eQTL analysis. M.V., Z.O. and M.I.Z. were responsible for the cell type proportion prediction. N.K. and M.V. were responsible for the cell type interaction analysis. S.D. was responsible for the selection of brain samples from ENA. D.B., Y.H., C.-Y.C., E.E.M, T.R.G. and E.A.T. were responsible for MR and colocalization analysis and interpretation. P.D., O.B.B. and L.F. were responsible for the Downstreamer analysis. L.F., E.A.T. and H.R. acquired funding and supervised the study. N.K., E.A.T., M.V., D.B, Y.H., C.-Y.C., O.B.B., H.R., L.F. and H.W. drafted the manuscript. All authors have proof-read the manuscript. 

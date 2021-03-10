@@ -1,4 +1,4 @@
-\chapterfont{\color{Grey}}  % sets colour of chapter
+\chapterfont{\huge\color{Grey}}  % sets colour of chapter
 
 \sectionfont{\color{Grey}}  % sets colour of sections
 
@@ -31,10 +31,13 @@
 		\put(350.5,-191.5){ 6 }
 }}
 
-
-
+\cleartoleftpage
+\makeatletter
+\let\savedchap\@makechapterhead
+\def\@makechapterhead{\vspace*{-3cm}\savedchap}
 \chapter{Introduction}
-
+\let\@makechapterhead\savedchap
+\makeatletter
 \label{chap:introduction}
 
 
@@ -51,14 +54,16 @@ When the first draft of the human genome was released in June of 2000, the then 
 The impact of the project was, and still is, enormous and has enabled many advances within genetics and genomics research\cite{chicheBenchtobedsideReviewFulfilling2002} and in identification of new disease genes and has helped to improve genetic diagnosis\cite{claussnitzerBriefHistoryHuman2020}. However, this has only led to treatment in a limited number of cases. Even though diagnosis of genetic disorders has improved, genetic testing is still unable to find the causal genes and variants in the majority of cases\cite{diemenRapidTargetedGenomics2017}. Genetic tests are now successfully used for preventative care of monogenic disorders, such as preventative mastectomies or extra surveillance for BRCA1/2 carriers \cite{heemskerk-gerritsenSurvivalBilateralRiskreducing2019}, but for complex disorders, where many variants have a small effect as opposed to one or a few variants having a large effect, this is still difficult\cite{claussnitzerBriefHistoryHuman2020}. 
 
 
-Despite the fact that the past 20 years have been full of incredible advances in genomics and genetics research, we are not yet close to the prevention and treatment of most human diseases. Still, there are many ways in which the field of genetics can assist in improving clinical outcome for rare and complex disorders. Currently, there are public-private partnerships under way that will help better our understanding of genotype-phenotype relationships\cite{HomepageInternationalCommon}, provide large data resources for researchers\cite{fingennFinnGenDocumentationR32020,sudlowUKBiobankOpen2015}, and assist in drug target identification\cite{carvalho-silvaOpenTargetsPlatform2019}. Improvements in polygenic risk scores will allow prediction of risk for polygenic traits\cite{natarajanpradeepPolygenicRiskScore2017, kheraGenomewidePolygenicScores2018}, which can help in preventative care for complex disorders. In drug development, the fraction of drug compounds with direct genetic support increases substantially between the preclinical and approved stage (2.0\% versus 8.2\%, respectively\cite{nelsonSupportHumanGenetic2015}), which demonstrates the added benefit of integrating genetic research into the drug development pipeline. %Finally, integrating layers of omics and environmental data will address the issue of “missing heritability”\cite{claussnitzerBriefHistoryHuman2020}. 
+Despite the fact that the past 20 years have been full of incredible advances in genomics and genetics research, we are not yet close to the prevention and treatment of most human diseases. Still, there are many ways in which the field of genetics can assist in improving clinical outcome for rare and complex disorders. Currently, there are public-private partnerships under way that will help better our understanding of genotype-phenotype relationships\cite{HomepageInternationalCommon}, provide large data resources for researchers\cite{fingennFinnGenDocumentationR32020,sudlowUKBiobankOpen2015}, and assist in drug target identification\cite{carvalho-silvaOpenTargetsPlatform2019}. Improvements in polygenic risk scores will allow prediction of risk for polygenic traits\cite{natarajanpradeepPolygenicRiskScore2017, kheraGenomewidePolygenicScores2018}, which can help in preventative care for complex disorders. In drug development, the fraction of drug compounds with direct genetic support increases substantially between the preclinical and approved stage (2.0\% versus 8.2\%, respectively\cite{nelsonSupportHumanGenetic2015}), which demonstrates the added benefit of integrating genetic research into the drug development pipeline. 
 
 
 In this thesis, I address two important factors that are needed if we want to use functional genomics to assist in improving healthcare: (1) insight into the effects of rare variants on gene expression and the genetic architecture of molecular traits and (2) the cell-type- and tissue-context of the genetic effects on molecular traits.
 
 
+\Needspace{10\baselineskip}
 \section{General introduction}
 
+\Needspace{10\baselineskip}
 \subsection{Gene regulation through genetic variation}
 
 The central dogma of molecular biology states that genes, the genetic information stored in DNA, are transcribed to RNA, which is then translated to a protein\cite{crickCentralDogmaMolecular1970}. Almost every process in cells is then regulated by these proteins. They act as transcription factors (regulators of gene activity), antibodies (binding to specific foreign particles), enzymes (enablers of many chemical reactions), messengers, and structural components, as well as having roles in transport or storage\cite{uzmanMolecularBiologyCell2003}. However, exceptions to this dogma exist: there are many genes for which the RNA transcript does not get translated to a protein, yet these non-coding genes are often involved in regulating the activity of genes\cite{shabalinaMammalianTranscriptomeFunction2004}. 
@@ -67,11 +72,13 @@ The central dogma of molecular biology states that genes, the genetic informatio
 The DNA that contains the genetic information consists of about 6.4 billion nucleotide bases divided over 23 chromosome pairs. When comparing a typical human genome sequence to the sequence of the reference human genome, about 4.1 to 5 million sites will be different (< 0.1\%). Most often, these differences are either a difference of a single nucleotide or the insertion or deletion of a single base\cite{the1000genomesprojectconsortiumGlobalReferenceHuman2015}. Large deletions, duplications, inversions, and other chromosome changes occur, but the focus of this thesis is on single nucleotide changes and short insertions and deletions. Many of these differences will have no noticeable effect on any observable characteristics (the phenotype). Others will have a subtle effect, e.g. having a very small effect on adult height, of which some can also increase risk for common diseases. A smaller fraction of these variants can more profound effects on certain phenotypes, for example eye colour. And sometime, other rare variants can cause rare but severe genetic disorder such as cystic fibrosis or Huntington’s disease. 
 
 
+\Needspace{10\baselineskip}
 \subsection{The effects of single nucleotide polymorphisms}
 
 Single Nucleotide Polymorphisms (SNPs), the difference of a single nucleotide base, can affect a gene in multiple ways. A SNP within a gene (coding region) can cause the protein product to be prematurely stopped\cite{deboeverMedicalRelevanceProteintruncating2018} or to fold differently\cite{vihinenTypesEffectsProtein2015}, thus reducing or completely removing its functionality. A SNP can also be located outside of the gene (in a non-coding region), for example in the start site of a gene or in an enhancer region, and thereby affecting gene activity. This effect can be measured by dividing people up in their genotype groups, and measuring their gene expression (\textbf{Figure \ref{introduction_fig1}A}) A SNP at a transcription start site can cause a transcription factor to bind with less affinity, thereby lowering gene activity, which can also lead to disorders (\textbf{Figure \ref{introduction_fig1}B}). One example of this is the Pierre Robin sequence, which is caused by changes in non-coding sequences around the SOX9 gene\cite{benkoHighlyConservedNoncoding2009}. However, variation in a non-coding region most often has a smaller effect than mutations in a coding region, and it usually takes multiple non-coding mutations to cause a severe disorder.
 
 
+\Needspace{10\baselineskip}
 \subsection{Genetic disorders}
 
 Genetic disorders are often divided in two broad classes: monogenic disorders\cite{heidiRareGeneticDisorders2008} and complex disorders\cite{craigComplexDiseasesResearch2008}. Monogenic disorders are caused by large-effect variants where a SNP in a single gene is enough to cause a disease. Some well-known examples of monogenic disorders are cystic fibrosis\cite{keremIdentificationCysticFibrosis1989}, sickle-cell anaemia\cite{neelInheritanceSickleCell1949}, and Huntington's disease\cite{gusellaPolymorphicDNAMarker1983}. Complex disorders, on the other hand, are characterised by multiple variants, usually in regulatory regions, that affect the expression levels of multiple genes. Each of these complex disease SNPs confer a limited amount of risk for getting the disease. Examples of complex disorders include diabetes mellitus type 2\cite{americandiabetesassociationDiagnosisClassificationDiabetes2007}, Alzheimer's disease\cite{hardyAlzheimerDiseaseAmyloid1992}, and autism\cite{PolygenicTransmissionDisequilibrium}. For monogenic disorders, it is relatively easy to identify the causal variant because they are most often located within genes and either change important amino acids or cause frame shifts. Identifying associated variants for complex disorders is, however, much more difficult because each variant only has a small contribution, and environmental factors can play an important role as well. Once associated variants have been found, the next challenge: to identify the causal variant remains difficult. For common variants often numerous variants exists that are in strong linkage disequilibrium, making it very challenging to pinpoint the true causal variant.
@@ -85,21 +92,24 @@ The effects that genetic variants have on gene expression can be different depen
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{chapters/chapter1-introduction/img/2021-03-07-fig1.pdf}
-	\caption{\textbf{A} A typical eQTL schematic. Left:  A position on the DNA that is different between people (single-nucleotide polymorphism, SNP)  affects the expression of a gene. Right: because we have two copies of each chromosome (one from each parent), we have two copies of each DNA position. In this example, the variation of the DNA at this position can be either an A or C nucleotide. Because you can get either from each of your parents, people will either have an A on both chromosomes (A/A), an A on one chromosome and a C on the other chromosome (A/C), or a C on both chromosomes (C/C). By comparing the gene expression between these three groups, we can determine if the SNP has an effect on the gene expression. \textbf{B} A simplified view of one of the many ways in which a  SNP might affect gene expression. A polymerase protein reads the DNA and creates an RNA molecule. The polymerase is recruited to the DNA by the transcription complex, proteins that are bound to the DNA. A change in nucleotides where the transcription complex binds might lower binding affinity. Because of this, the polymerase will transcribe less RNA, and people with the A/C and A/A genotype will have lower expression of the gene as shown in \textbf{panel A}. \textbf{C} Because the cellular context, for example the proteins that are present available, is different between tissues, it is possible that there is a different effect of the same SNP on the same gene when studying brain or blood samples. \textbf{D} Even within cells from the same tissue, such as different cells present in the brain, the effect of a SNP on gene expression can differ.}
+	\caption{\textbf{(A) A typical eQTL schematic}. Left:  A position on the DNA that is different between people (single-nucleotide polymorphism, SNP)  affects the expression of a gene. Right: because we have two copies of each chromosome (one from each parent), we have two copies of each DNA position. In this example, the variation of the DNA at this position can be either an adenine (A) or cytosine (C) nucleotide and you can get either from each of your parents. Therefore, people will either have an A on both chromosomes (A/A), an A on one chromosome and a C on the other chromosome (A/C), or a C on both chromosomes (C/C). By comparing the gene expression between these three groups, we can determine if the SNP has an effect on the gene expression. \textbf{(B) An overview of one of the ways in which a SNP might affect gene expression.} A polymerase protein reads the DNA and creates an RNA molecule. The polymerase is recruited to the DNA by the transcription complex, proteins that are bound to the DNA. A change in nucleotides where the transcription complex binds might lower binding affinity. Because of this, the polymerase will transcribe less RNA, and people with the A/C and A/A genotype will have lower expression of the gene as shown in \textbf{panel A}. \textbf{(C) Different genetic effects between tissues.} Because the cellular context, for example the proteins that are present, is different between tissues, it is possible that there is a different effect of the same SNP on the same gene when studying brain or blood samples. \textbf{(D) Different genetic effects between cell types.} Even within cells from the same tissue, such as different cells present in the brain, the effect of a SNP on gene expression can differ.}
 	\label{introduction_fig1}
 \end{figure}
 
 
+\Needspace{10\baselineskip}
 \section{This thesis}
 
 The aim of this thesis is to get a better understanding of the context in which genetic risk factors influence gene expression levels. In Part 1, we describe the effects of rare variants on gene expression in blood and the genetic architecture of molecular traits. In Part 2, we identify genetic regulation in the context of different cell types in blood and brain.
 
 
+\Needspace{10\baselineskip}
 \subsection{Part 1 - Architecture of molecular traits and rare variant signals}
 
 In Chapter 2, we compared the heritability explained by all the studies included in the GWAS Catalog\cite{bunielloNHGRIEBIGWASCatalog2019} to the heritability explained by expression quantitative trait loci (eQTL) and methylation quantitative trait loci (meQTL) studies. By doing so, we find that the genetic architecture of molecular traits is less polygenic than that of (disease) phenotypes. In chapter 3, we identify the disease categories for which allele-specific expression can be informative for prioritizing putative causal variants.
 
 
+\Needspace{10\baselineskip}
 \subsection{Part 2 - Cell type- and tissue-context of genetic regulation of gene expression}
 
 In chapter 4, we develop two methods. The first predicts the cell count proportions from whole blood samples using gene expression data. The second deconvolutes the cell type‒interacting eQTL effects found in whole blood samples. In chapter 5, we compare the genetic regulation of gene expression in brain and blood and identify which genes are affected by neurodegenerative and psychiatric risk factors. In chapter 6, I discuss how these findings can contribute to improving health care outcomes.
