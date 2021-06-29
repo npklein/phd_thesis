@@ -7,23 +7,7 @@
 		\color{DarkOrange}\leaders\hrule height \headrulewidth\hfill}} % color of title
 \fancyfoot[LE,RO]{\thepage}
 
-{ \Large \leftwatermark{
-		\put(-67,-66.5){ 1 }
-		\put(-67,-91.5){ 2 }
-		\put(-67,-116.5){ 3 }
-		\put(-67,-141.5){ 4 }
-		\put(-76.5,-176){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkOrange.eps}} 
-		\put(-67,-166.5){{\color{white} 5 }}
-		\put(-67,-191.5){ 6 }
-	} \rightwatermark{
-		\put(350.5,-66.5){ 1 }
-		\put(350.5,-91.5){ 2 }
-		\put(350.5,-116.5){ 3 }
-		\put(350.5,-141.5){ 4 }
-		\put(350.5,-176){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkOrange.eps}} 
-		\put(350.5,-166.5){ {\color{white} 5 } }
-		\put(350.5,-191.5){ 6 }
-}}
+
 
 \cleardoublepage
 \makeatletter
@@ -49,6 +33,24 @@ Niek de Klein\textsuperscript{*}, Ellen A. Tsai\textsuperscript{*}, Martijn Voch
 \# These authors jointly directed this work
 
 \newpage
+
+{ \Large \leftwatermark{
+		\put(-84,-66.5){ 1 }
+		\put(-84,-91.5){ 2 }
+		\put(-84,-116.5){ 3 }
+		\put(-84,-141.5){ 4 }
+		\put(-97.5,-176){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkOrange.eps}} 
+		\put(-84,-166.5){{\color{white} 5 }}
+		\put(-84,-191.5){ 6 }
+	} \rightwatermark{
+		\put(417.5,-66.5){ 1 }
+		\put(417.5,-91.5){ 2 }
+		\put(417.5,-116.5){ 3 }
+		\put(417.5,-141.5){ 4 }
+		\put(417.5,-176){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkOrange.eps}} 
+		\put(417.5,-166.5){ {\color{white} 5 } }
+		\put(417.5,-191.5){ 6 }
+}}
 
 \Needspace{10\baselineskip}
 \section*{Abstract}
@@ -314,7 +316,7 @@ The genotype data for the included datasets was generated using different platfo
 
 We performed quality control on each dataset separately, using slightly different approaches per platform. For the array-based datasets, we first matched genotypes using GenotypeHarmonizer\cite{deelenGenotypeHarmonizerAutomatic2014} using 1000 genomes phase 3 v5a (1kgp) as a reference, limited to variants having MAF $>$ 1\%, $<$ 95\% missingness and Hardy-Weinberg equilibrium p-value $<$ 0.0001. Genotypes were then imputed using HRC v1.1 as a reference on the Michigan imputation server 30. In all HRC imputed datasets, variants with imputation info score $<$ 0.3 were removed. For the WGS datasets, we removed indels and poorly genotyped SNPs having VQSR tranche $<$ 99.0, genotype quality $<$ 20, inbreeding coefficient $<$ -0.3 and $>$ 5\% missingness, setting genotype calls with allelic depth $<$ 10 and allelic balance $<$ 0.2 or $>$ 0.8 as missing. WGS datasets were not imputed with HRC. Considering the small size of some of the datasets, we decided to focus further analysis on variants with MAF $>$ 1\% and Hardy-Weinberg p-value $>$ 0.0001. 
 
-In each dataset, we removed genetically similar individuals by removing individuals with pihat $>$ 0.125, as calculated with Plink. Additionally, we merged genotypes with those from 1kgp, pruned genotypes with --indep-pairwise 50 5 0.2 in plink, and performed PCA on the sample correlation matrix. We performed k-nearest neighbors (k=7) on the first two PCs, using the known ancestry labels in 1kgp, to assign an ancestry to each genotyped sample. The majority of included samples was of EUR descent: 5,138 samples had an EUR assignment, 805 samples had an AFR assignment, and 573 samples were assigned to the other ethnicities (\textbf{Supplementary Table 1}, \textbf{Figure \ref{metabrain_fig2}B}). 
+In each dataset, we removed genetically similar individuals by removing individuals with pihat $>$ 0.125, as calculated with Plink. Additionally, we merged genotypes with those from 1kgp, pruned genotypes with -indep-pairwise 50 5 0.2 in plink, and performed PCA on the sample correlation matrix. We performed k-nearest neighbors (k=7) on the first two PCs, using the known ancestry labels in 1kgp, to assign an ancestry to each genotyped sample. The majority of included samples was of EUR descent: 5,138 samples had an EUR assignment, 805 samples had an AFR assignment, and 573 samples were assigned to the other ethnicities (\textbf{Supplementary Table 1}, \textbf{Figure \ref{metabrain_fig2}B}). 
 
 For the purpose of eQTL analysis, we next assessed links between RNA-seq and genotype samples and noted that some individuals had multiple RNA-seq samples (e.g. from multiple brain regions) or multiple genotype samples (e.g. from different genotyping platforms). In total, we were able to determine 7,644 links between RNA-seq samples and genotype samples (Supplementary Table 1), reflecting 3,525 unique EUR individuals, 624 unique AFR individuals, and 510 unique individuals assigned to other ethnicities. We then grouped linked RNA-seq samples based on ethnicity and tissue group to prevent possible biases on eQTL results. For those individuals with multiple linked RNA-seq samples, we selected a sample at random within these groups. Within each tissue and ethnicity group, we then selected unique genotype samples across datasets in such a way to maximize sample size per genotype dataset. For the eQTL analysis per tissue, we only considered those datasets having more than 30 unique linked samples available, and for which at least two independent datasets were available. Using these criteria for sample and dataset selection, we were able to create 7 eQTL discovery datasets: Basal ganglia-EUR (n=208), Cerebellum-EUR (n=492), Cortex-EUR (n=2,970), Cortex-AFR (n=420), Hippocampus-EUR (n=168) and Spinal cord-EUR (n=108; \textbf{Supplementary Table 1, Figure \ref{metabrain_fig2}C}). 
 
@@ -439,3 +441,6 @@ N.K., O.E.G, and H.W. processed the RNA-seq and genotype data. N.K. and H.W. wer
 
 \bibliographystyle{naturemag}
 \bibliography{chapters/chapter5-brain-eqtls/chapter5-brain-eqtls}
+
+\leftwatermark{}
+\rightwatermark{}

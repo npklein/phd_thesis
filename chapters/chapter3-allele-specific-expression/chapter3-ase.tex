@@ -8,27 +8,8 @@
 		\color{LightOrange}\leaders\hrule height \headrulewidth\hfill}} % color of title
 \fancyfoot[LE,RO]{\thepage}
 
-{ \Large \leftwatermark{
-		\put(-67,-66.5){ 1 }
-		\put(-67,-91.5){ 2 }
-		\put(-76.5,-126){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_LightOrange.eps}}  
-		\put(-67,-116.5){ {\color{white} 3 }}
-		\put(-67,-141.5){ 4 }
-		\put(-67,-166.5){ 5 }
-		\put(-67,-191.5){ 6 }
-	} \rightwatermark{
-		\put(350.5,-66.5){ 1 }
-		\put(350.5,-91.5){ 2 }
-		\put(346.5,-126){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_LightOrange.eps}}  
-		\put(350.5,-116.5){ {\color{white} 3 }}
-		\put(350.5,-141.5){ 4 }
-		\put(350.5,-166.5){ 5 }
-		\put(350.5,-191.5){ 6 }
-}}
 
 \cleardoublepage
-\cleardoublepage
-\cleartoleftpage
 \makeatletter
 \let\savedchap\@makechapterhead
 \def\@makechapterhead{\vspace*{-3cm}\savedchap}
@@ -52,6 +33,25 @@ Niek de Klein\textsuperscript{*}, Freerk van Dijk\textsuperscript{1*}, Patrick D
 * These authors contributed equally to this work.
 
 \newpage
+
+{ \Large \leftwatermark{
+		\put(-84,-66.5){ 1 }
+		\put(-84,-91.5){ 2 }
+		\put(-97.5,-126){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_LightOrange.eps}}  
+		\put(-84,-116.5){ {\color{white} 3 }}
+		\put(-84,-141.5){ 4 }
+		\put(-84,-166.5){ 5 }
+		\put(-84,-191.5){ 6 }
+	} \rightwatermark{
+		\put(417.5,-66.5){ 1 }
+		\put(417.5,-91.5){ 2 }
+		\put(417.5,-126){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_LightOrange.eps}}  
+		\put(417.5,-116.5){ {\color{white} 3 }}
+		\put(417.5,-141.5){ 4 }
+		\put(417.5,-166.5){ 5 }
+		\put(417.5,-191.5){ 6 }
+}}
+
 
 \section*{Abstract}
 \textbf{Background} One of the growing problems in genome diagnostics is the increasing number of variants that get identified through genetic testing but for which it is unknown what the significance for the disease is (Variants of Unknown Significance - VUS)\cite{hoffman-andrewsKnownUnknownChallenges2018,direstaNextgenerationSequencingApproach2018}. When these variants are observed in patients, clinicians need to be able to determine their relevance for causing the patient’s disease. Here we investigated whether allele-specific expression (ASE) can be used to prioritize disease-relevant VUS and therefore assist diagnostics. In order  to do so, we conducted ASE analysis in RNA-seq data from 3,818 blood samples (part of the the Dutch BIOS biobank consortium), to ascertain how VUS affect gene expression. We compared the effect of VUS variants to variants that are predicted to have a high impact, and variants that are predicted to be pathogenic but are either recessive or autosomal-dominant with low penetrance.
@@ -208,7 +208,7 @@ For parallelization, the genome was chunked by selecting all genes expressed in 
 	
 \Needspace{10\baselineskip}
 \subsection{Read-backed phasing and allelic count generation}
-Read-backed phasing can be used to improve phasing of variants, especially rare variants, that influence splicing. We used phASER\cite{castelRareVariantPhasing2016} (version 1.0.0, git version cd7daba) to perform read-backed phasing for all samples in combination with the RNA-Seq BAM files. PhASER ran with the following options: --paired-end, --gw\_phase\_method, --gw\_phase\_vcf, --baseq 10 and --mapq 255, allowing only uniquely mapped reads to be used for counting of alleles. In addition to these options, we also enabled the --unphased\_vars, which is required to run phASER Gene AE afterwards.
+Read-backed phasing can be used to improve phasing of variants, especially rare variants, that influence splicing. We used phASER\cite{castelRareVariantPhasing2016} (version 1.0.0, git version cd7daba) to perform read-backed phasing for all samples in combination with the RNA-Seq BAM files. PhASER ran with the following options: -paired-end, -gw\_phase\_method, -gw\_phase\_vcf, -baseq 10 and -mapq 255, allowing only uniquely mapped reads to be used for counting of alleles. In addition to these options, we also enabled the -unphased\_vars, which is required to run phASER Gene AE afterwards.
 phASER provides haplotypic counts for blocks of overlapping RNA reads. With GeneAE, the haplotypes that overlap a gene are summed to give a genetic feature count. For each sample and gene, the results are aggregated into a matrix with an allelic ratio for each gene and each sample. 
 
 \Needspace{10\baselineskip}
@@ -233,3 +233,5 @@ We thank K. Mc Intyre for editing the final text. F.v D. is supported by the Net
 
 \bibliographystyle{naturemag}
 \bibliography{chapters/chapter3-allele-specific-expression/chapter3-ase}
+\leftwatermark{}
+\rightwatermark{}
