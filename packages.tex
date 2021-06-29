@@ -12,11 +12,23 @@
 \usepackage{tabulary} % allows tables to automatically adjust to line width
 \usepackage{parskip} % add empty line between paragraphs
 \usepackage{xurl} % break long urls over multiple lines
-\usepackage[a5paper]{geometry}
+\usepackage{geometry}
 \usepackage{graphicx} % allow figures
 \usepackage{fancyhdr} % nice headers and footers
 \usepackage[toc,page]{appendix} % allow nice appendix
 \usepackage{tabularx} % for rare tables that refuse lay
+
+% Make it the right size for 17cm x 24cm used by ridderprint, with 3mm bleed
+\usepackage{geometry}
+    \geometry{
+	papersize = {176mm,246mm},
+	layoutsize = {170mm,240mm},
+	layoutoffset = {3mm,3mm},
+	bindingoffset = -3mm
+}
+
+% have empty page without bibliography header
+\usepackage{emptypage}
 
 \usepackage{tikz} % package to create graphic elements, used in chapterstyle.tex
 
