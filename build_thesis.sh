@@ -5,6 +5,6 @@ bibtex chapters/chapter3-allele-specific-expression/chapter3-ase;
 bibtex chapters/chapter4-deconvolution/chapter4-deconvolution;
 bibtex chapters/chapter5-brain-eqtls/chapter5-brain-eqtls;
 bibtex chapters/chapter6-discussion/chapter6-discussion;
-bibtex non_chapters/list_of_publications/own-bib
+bibtex non_chapters/appendix;
 pdflatex thesis.tex;
 pdflatex thesis.tex
