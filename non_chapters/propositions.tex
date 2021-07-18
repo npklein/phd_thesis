@@ -1,40 +1,49 @@
-\documentclass[10pt]{article}
 
-\renewcommand{\familydefault}{\sfdefault}
+\documentclass[a5]{article}
+\usepackage{mathpazo} % math & rm
+\linespread{1.05}        % Palatino needs more leading (space between lines)
+\usepackage[scaled]{helvet} % ss
+\usepackage{courier} % tt
+%\normalfont
+\usepackage[T1]{fontenc}
+\usepackage[top=2.0cm,bottom=2.0cm,inner=2.0cm,outer=2.0cm,a5paper,layout=a5paper]{geometry}
 
 \begin{document}
-\thispagestyle{empty}
+	\pagenumbering{gobble}
+	\begin{center}
+		{\large \textbf{Propositions}}
+		
+		\bigskip
+		
+		accompanying the dissertation
+		
+		\bigskip
+		
+		{\bfseries Genetic regulation of gene expression in brain and blood}
+		
+		\medskip
+		
+		by
+		
+		\medskip
+		
+		{ \textbf{Niek de Klein}}
+	\end{center}
+	
+	\medskip
+	
+	\begin{enumerate}
+		\item Effect sizes of GWAS variants on local molecular traits is often much higher than on disease phenotypes. Knowing what mitigates these large effects is important for understanding disease. \emph{This thesis}
+		\item Modelling which cell type contributes most to eQTLs, measured in bulk tissue, can identify disease relevant cell types. \emph{This thesis}
+		\item Heterozygous mutations that lower expression of the gene on the affected allele regularly don’t affect overall expression, as the unaffected allele will compensate with higher expression levels. \emph{This thesis}
+		\item Making more complicated models that better follow biology can lower statistical power, but increase accuracy. \emph{This thesis}
+		\item Genes that function in the brain have stronger selection pressure against genetic variation than genes that function in blood cells.\emph{This thesis}
+		\item Without being able to predict cell count proportions interpreting distal genetic regulation of gene expression using bulk samples is impossible. \emph{This thesis}
+		\item Multi tissue diseases require multi tissue datasets to identify all causal genes. \emph{This thesis}
+		\item Sometimes you need to reinvent the wheel to understand why it is round. 
+		\item It’s still magic even if you know how it’s done. \emph{Terry Pratchett, A Hat Full of Sky}.
+		
 
-\Large
-Stellingen
-
-\small
-
-\begin{enumerate}
-
-  \item Variant pathogenicity predictions can be biologically correct while still false from a clinical perspective. \textsl{(this thesis)}
-
-  \item For some genes, evolutionary and structural properties seem to have no bearing on the estimated pathogenicity of variants, hinting at control by still unknown mechanisms. \textsl{(this thesis)}
-
-  \item In variant interpretation "Too much emphasis on trying to prove pathogenicity, runs the risk of the Texas Sharpshooter Fallacy" (-- Gijs Santen\footnote{\tiny http://biosb.nl/wp-content/uploads/2015/09/Day-3-Santen-Clinical-collaboration.pdf}). This risk can be minimized by using false discovery estimates from healthy individuals. \textsl{(this thesis)}
-
-  \item Knowing the specific strengths and weaknesses of a method is ultimately more important than its overall performance, however good, for understanding that method's true benefit. \textsl{(this thesis)}
-
-  \item In-vivo variant pathogenicity assays based on worm genetics could represent a great trade-off between ethics, cost and relevance for human disease. \textsl{(this thesis)}
-
-  \item Semantic web technology is surprisingly under used, especially considering how data integration is always of prime concern in life science projects. \textsl{(this thesis)}
-
-  \item Generating web databases from blueprints requires you to think about the structure and meaning of data, which is its real advantage.
-
-  \item Journals should only accept papers with quality codebases that have been tested and are comparable to lab experiments using controls.
-
-  \item With medicine that can repair the genome, we will no longer need to be afraid of incidental findings.
-  
-  \item ...however, with this new medicine, there will be a completely new dilemma of what to do with 'likely pathogenic' variants as identified by genome diagnostics.
-  
 \end{enumerate}
-
-\noindent
-Propositions belonging to the doctoral thesis 'Translational software infrastructure for medical genetics', by K. Joeri van der Velde, 2017
 
 \end{document}
