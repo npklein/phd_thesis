@@ -9,6 +9,7 @@
 \fancyfoot[LE,RO]{\thepage}
 
 
+
 \cleardoublepage
 \makeatletter
 \let\savedchap\@makechapterhead
@@ -27,7 +28,7 @@
 \hfill DOI: \href{https://doi.org/10.1101/2020.09.19.300095}{2020.09.19.300095}
 \\
 \\
-Niek de Klein\textsuperscript{*}, Freerk van Dijk\textsuperscript{1*}, Patrick Deelen, Carlos G. Urzua, Annique Claringbould\textsuperscript, Urmo Võsa, Joost A.M. Verlouw, Ramin Monajemi, Peter A.C. ‘t Hoen, Richard J. Sinke, BIOS Consortium, Morris A. Swertz and Lude Franke
+Niek de Klein\textsuperscript{*}, Freerk van Dijk\textsuperscript{*}, Patrick Deelen, Carlos G. Urzua, Annique Claringbould\textsuperscript, Urmo Võsa, Joost A.M. Verlouw, Ramin Monajemi, Peter A.C. ‘t Hoen, Richard J. Sinke, BIOS Consortium, Morris A. Swertz and Lude Franke
 \\
 \\
 * These authors contributed equally to this work.
@@ -75,7 +76,7 @@ Here we studied RNA from whole blood for 3,818 unrelated individuals from BIOS, 
 We first determined the genotypes for all BIOS samples using RNA-Seq expression data by employing a modified version of the GATK\cite{mckennaGenomeAnalysisToolkit2010} best practices workflow for genotyping (see Methods). After joint genotype calling and filtering out genotypes with low quality, low call rate, or overlap with RNA-editing sites, missing genotype calls were imputed to their most likely genotypes using a backbone of genotyping array-genotypes and genotypes called from RNA-Seq. After quality control (QC), 297,656 SNPs in 9507 genes were called (\textbf{Supplementary Figure 1A}), and most of these SNPs had a low MAF (mean MAF = 0.036, \textbf{Supplementary Figure 1B}). The number of low MAF SNPs is so high largely due to the limitation of calling genotypes from RNA-Seq data, as genes have to be sufficiently expressed.
 
 \begin{figure}[h!]
-	\includegraphics[width=\textwidth]{chapters/chapter3-allele-specific-expression/img/fig1.pdf}
+	\includegraphics[width=\textwidth]{chapters/chapter3-allele-specific-expression/img/fig1.png}
 	\caption{\textbf{Quality of RNA-seq based genotypes for allele specific expression analysis.} A) Allele frequency comparison showing strong correlation between WGS genotypes and RNAseq genotypes for 68,564 SNPs from the same samples. B) The same allele frequency comparison between RNAseq-based genotypes and WGS genotypes for rare variants. C) RNAseq-based genotype switching error after phasing. D) Comparison in allelic effect direction between blood and GTEx whole blood ASE. }
 	\label{ase_fig1}
 \end{figure}
