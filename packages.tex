@@ -12,11 +12,15 @@
 \usepackage{tabulary} % allows tables to automatically adjust to line width
 \usepackage{parskip} % add empty line between paragraphs
 \usepackage{xurl} % break long urls over multiple lines
-\usepackage{geometry}
 \usepackage{graphicx} % allow figures
 \usepackage{fancyhdr} % nice headers and footers
 \usepackage[toc,page]{appendix} % allow nice appendix
 \usepackage{tabularx} % for rare tables that refuse lay
+
+%allow sideways figures
+\usepackage{rotating}
+% Used to remove page number of page with full figure that overlapped the figure text (see chapter 4, figure 5)
+\usepackage{afterpage}
 
 % Make it the right size for 17cm x 24cm used by ridderprint, with 3mm bleed
 \usepackage{geometry}
@@ -35,7 +39,7 @@
 \usepackage[super]{natbib}
 
 \usepackage{chapterbib} % chapterbib allows different bibliographies for each chapter
-\usepackage{geometry} % allow difference in margins for some pages
+
 
 \usepackage{mathtools} % mathematical notations
 
