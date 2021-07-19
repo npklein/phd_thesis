@@ -35,21 +35,21 @@ Niek de Klein\textsuperscript{*}, Ellen A. Tsai\textsuperscript{*}, Martijn Voch
 \newpage
 
 { \Large \leftwatermark{
-		\put(-84,-66.5){ 1 }
-		\put(-84,-91.5){ 2 }
-		\put(-84,-116.5){ 3 }
-		\put(-84,-141.5){ 4 }
+		\put(-50,-66.5){ 1 }
+		\put(-50,-91.5){ 2 }
+		\put(-50,-116.5){ 3 }
+		\put(-50,-141.5){ 4 }
 		\put(-97.5,-176){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkOrange.eps}} 
-		\put(-84,-166.5){{\color{white} 5 }}
-		\put(-84,-191.5){ 6 }
+		\put(-50,-166.5){{\color{white} 5 }}
+		\put(-50,-191.5){ 6 }
 	} \rightwatermark{
-		\put(417.5,-66.5){ 1 }
-		\put(417.5,-91.5){ 2 }
-		\put(417.5,-116.5){ 3 }
-		\put(417.5,-141.5){ 4 }
-		\put(417.5,-176){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkOrange.eps}} 
-		\put(417.5,-166.5){ {\color{white} 5 } }
-		\put(417.5,-191.5){ 6 }
+		\put(388,-66.5){ 1 }
+		\put(388,-91.5){ 2 }
+		\put(388,-116.5){ 3 }
+		\put(388,-141.5){ 4 }
+		\put(380,-176){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkOrange.eps}} 
+		\put(388,-166.5){ {\color{white} 5 } }
+		\put(388,-191.5){ 6 }
 }}
 
 \Needspace{10\baselineskip}
@@ -103,11 +103,11 @@ The properties of the Cortex-EUR eQTLs conform to studies performed earlier in b
 
 We investigated differences in cis-eQTLs due to ancestry, brain region, data sets and tissue type. We compared Cortex-EUR, Cortex-AFR and a smaller, East Asian cortex dataset (Cortex-EAS; n=208, limited to the ENA cohort; \textbf{Figure \ref{metabrain_fig2}C}), and observed a high allelic concordance between the different ethnicities ($>$95.67\%; \textbf{Figure \ref{metabrain_fig3}C}). There was high concordance between different brain regions overall ($>$94.58\%), though the cerebellum showed lower concordance with the cerebral brain regions \textbf{Figure \ref{metabrain_fig3}D}. Despite the limited sample size compared to Cortex-EUR, we identified 846 \textit{cis}-eQTLs that were unique to Cerebellum-EUR (\textbf{Supplementary Figure 11A}). Of the 846 Cerebellum-EUR unique cis-eQTL genes, 184 had low gene expression levels in cortex, which may explain why they did not have a \textit{cis}-eQTL in that tissue(\textbf{Supplementary Figure 11B, C, Supplementary Note}). For the remaining 662 genes that were highly expressed in both cortex and cerebellum, we performed functional enrichment of transcription factor binding cites (TFBS; (\textbf{Supplementary Table 5, Supplementary Note}) and determined that these genes were enriched for TFBS of 101 distinct transcription faxtors. Five of these transcription factors had low gene expression in cortex  and high expression in cerebellum (\textit{EOMES}, \textit{TFAP2B}, \textit{TFAP2A}, \textit{IRX1} and \textit{IRX5}, \textbf{Supplementary Figure 11D}). These transcription factors might explain the difference in \textit{cis}-eQTL genes found in cerebellum but not in cortex, while many of these \textit{cis}-eQTL genes are expressed in both tissues. Next, we compared Cortex-EUR \textit{cis}-eQTLs with different tissues from the GTEx project (\textbf{Figure 3E; Supplementary Figure 12, Supplementary Table 6}). There was high concordance in brain-related tissues (cerebral tissues, $>$98\% and cerebellar tissues, $>$94\%) compared to other tissue types, and the lowest concordance rates were observed in testis (84\%) and whole blood (85\%). We also compared Cortex-EUR \textit{cis}-eQTLs with eQTLGen\cite{vosaUnravelingPolygenicArchitecture2018}, a large blood-based eQTL dataset (n=31,684; majority EUR ancestry) and observed a 76\% concordance rate (\textbf{Supplementary Figure 13; Supplementary Table 7}) with a moderate correlation of \textit{cis}-eQTL effect sizes (Rb=0.54 including all eQTLs, or Rb=0.62 when pruning genes within 1Mb)\cite{foleyFastEfficientColocalization2021}, supporting the lower concordance observed in GTEx-blood. Since we found that 24\% of the shared cis-eQTLs between blood and brain showed opposite allelic effects, these results suggest that with larger sample sizes, more tissue specific regulatory variants can be identified. If a causal tissue-specific regulatory variant resides on a haplotype that also contains a variant that is specific for another tissue, it is well conceivable that opposite allelic effects are going to be observed when contrasting eQTLs for these two tissues\cite{fuUnravelingRegulatoryMechanisms2012}. Since the procedures for eQTL mapping were identical between \textit{MetaBrain} and eQTLGen, our results highlight the relevance of tissue-specific eQTL mapping to accurately assess the directionality of eQTLs, which can elucidate eQTLs with opposite allelic effects\cite{fuUnravelingRegulatoryMechanisms2012}. This direct comparison illustrates the importance of investigating the appropriate tissue type for the interpretation of GWAS signals. 
 
-\begin{figure}[H]
+\begin{sidewaysfigure}
 	\includegraphics[width=\textwidth]{chapters/chapter5-brain-eqtls/img/2021-02-11-fig3-ciseqtls-v12.pdf}
 	\caption{\textbf{Conditional \textit{cis}-eQTLs.} \textbf{(A)} The number of conditional \textit{cis}-eQTLs per eQTL dataset. \textbf{(B)} Comparison of characteristics between primary and non-primary eQTLs, for each plot the p-value is a wilcoxon test between significant and non-significant genes. (left) The difference in mean expression; (middle) the difference in distance between the most significant SNP-gene combination; (right) the difference in pLI score, for primary, secondary and quartenary eQTLs non-significnat eQTLs have higher pLI scores.  \textbf{(C, D)} Replication of primary \textit{cis}-eQTLs between; the cortex eQTLs of different ethnicities \textbf{(C)} and; \textbf{(D)} the different brain regions for the European datasets. The n under the dataset name is the number of samples in that dataset. The boxes show the number the number of eQTLs that are significant in both the discovery and the replication set, and the percentage of those that shows the same direction of effect. \textbf{(E)} The replication between primary \textit{cis}-eQTLs of Cortex-EUR (discovery) with all the GTEx tissues (replication). Each dot is a different GTEx tissue, the x-axis is the number of eQTLs that is significant in both discovery and replication, and the y-axis is the percentage that shows the same direction of effect. }
 	\label{metabrain_fig3}
-\end{figure}
+\end{sidewaysfigure}
 
 \Needspace{10\baselineskip}
 \subsection{8\% of Cortex \textit{cis}-eQTLs are mediated by cell type proportion differences  }
@@ -137,7 +137,7 @@ To more formally test for overlap between GWAS and eQTL signals, we next impleme
 	\label{metabrain_tab1}
 	\resizebox{\textwidth}{!}{
 	\begin{tabular}{llllllllllll}
-		& \multicolumn{4}{c}{\cellcolor[HTML]{00B050}{\ul MetaBrain eQTL   instrument}}                                                            & \multicolumn{4}{c}{\cellcolor[HTML]{4472C4}{\ul Brain-related trait   outcome SNP effects}}                                                       & \multicolumn{3}{c}{\cellcolor[HTML]{FFC000}{\ul MR effects}}                                       \\
+		& \multicolumn{4}{c}{\cellcolor[HTML]{00B050}{\color{white}MetaBrain eQTL instrument}}  & \multicolumn{4}{c}{\cellcolor[HTML]{4472C4}{\color{white}Brain-related trait outcome SNP effects}}   & \multicolumn{3}{c}{\cellcolor[HTML]{ff8c00 }{\color{white}MR effects}}  \\
 		\multicolumn{1}{c}{\textbf{SNP}} & \multicolumn{1}{c}{\textbf{gene}} & \multicolumn{1}{c}{\textbf{beta}} & \multicolumn{1}{c}{\textbf{SE}} & \multicolumn{1}{c}{\textbf{p}} & \multicolumn{1}{c}{\textbf{outcome}}       & \multicolumn{1}{c}{\textbf{beta}} & \multicolumn{1}{c}{\textbf{SE}} & \multicolumn{1}{c}{\textbf{p}} & \multicolumn{1}{c}{\textbf{WR}} & \multicolumn{1}{c}{\textbf{SE}} & \multicolumn{1}{c}{\textbf{p}} \\
 		\rowcolor[HTML]{E0E0E0}rs679515:T/C                     & CR1                               & 0.824                             & 0.032                           & 2.45E-145                      & Alzheimer’s disease                        & 0.123                             & 0.012                           & 1.40E-23                       & 0.149                           & 0.015                           & 1.40E-23                       \\
 		\rowcolor[HTML]{E0E0E0}rs6069736:T/C                    & CASS4                             & 0.252                             & 0.044                           & 9.43E-09                       & Alzheimer’s disease                        & -0.105                            & 0.017                           & 6.52E-10                       & -0.415                          & 0.067                           & 6.52E-10                       \\
@@ -224,11 +224,11 @@ Two MS genes, \textit{CYP24A1} and \textit{CLECL1}, showed cell-type specific eQ
 
 As another MS signal that passed MR and colocalization, decreased expression of \textit{CLECL1} is associated with increased MS risk (MR Wald ratio=-0.16, $p=1.58 \times 10^{-9}$, Coloc PP4$>$0.92). The ieQTL analysis indicated that the rs7306304-A allele increased expression of \textit{CLECL1} with increasing macrophage proportion (interaction FDR=$1 \times 10^{-308}$, \textbf{Figure \ref{metabrain_fig5}D}). Rs7306304 is in strong LD with the MS lead SNP, rs7977720 (r2=0.84)\cite{consortiumMultipleSclerosisGenomic2019}. \textit{CLECL1} encodes a C-type lectin-like transmembrane protein highly expressed in dendritic and B cells that has been proposed to modulate immune response\cite{vanluijnMultipleSclerosisassociatedCLEC16A2015}. While \textit{CLECL1} expression was low in cortical bulk RNA-seq data, it had a 20-fold higher expression in purified microglia\cite{consortiumMultipleSclerosisGenomic2019}, suggesting that decreased \textit{CLECL1} expression increases MS susceptibility through microglia-mediated dysregulation of immune processes in the brain. 
 
-\begin{figure}[H]
+\begin{sidewaysfigure}
 	\includegraphics[width=\textwidth]{chapters/chapter5-brain-eqtls/img/2021-02-11-fig5-mr-v6.pdf}
 	\caption{\textbf{Mendelian randomization and colocalization of neurological traits.}\textbf{(A)} Number of MR significant (blue) and both MR and Coloc significant genes for 15  neurological traits \textbf{(B)} SNP and effect allele, eQTL beta and GWAS odds ratio for the 20 MS genes that are both MR and Coloc significant, and their Wald ratio p-value. \textbf{(D, E)} Cell type interacting eQTL for \textit{CYP24A1} \textbf{(D)} and \textit{CLECL1} \textbf{(E)} interacting with predicted neuron, and macrophage proportion respectively. The x-axis shows the estimated cell type proportion, the y-axis shows the gene expression, each dot represents a sample and the colors are according to the SNP genotype. Values under the alleles are Spearman correlation coefficients.}
 	\label{metabrain_fig5}
-\end{figure}
+\end{sidewaysfigure}
 
 \Needspace{10\baselineskip}
 \subsection{\textit{MetaBrain}  allows for the identification of \textit{trans}-eQTLs }
@@ -405,7 +405,7 @@ Data were generated as part of the CommonMind Consortium supported by funding fr
 \Needspace{10\baselineskip}
 \subsection*{GTEx}
 
-The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health (commonfund.nih.gov/GTEx). Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI\\Leidos Biomedical Research, Inc. subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to the The Broad Institute, Inc. Biorepository operations were funded through a Leidos Biomedical Research, Inc. subcontract to Van Andel Research Institute (10ST1035). Additional data repository and project management were provided by Leidos Biomedical Research, Inc.(HHSN261200800001E). The Brain Bank was supported supplements to University of Miami grant DA006227. Statistical Methods development grants were made to the University of Geneva (MH090941 \& MH101814), the University of Chicago (MH090951, MH090937, MH101825, \& MH101820), the University of North Carolina - Chapel Hill (MH090936), North Carolina State University (MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University (MH101810), and to the University of Pennsylvania (MH101822). The datasets used for the analyses described in this manuscript were obtained from dbGaP at http://www.ncbi.nlm.nih.gov/gap through dbGaP accession number phs000424.v7.p2 on 02/27/2020. 
+The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health (commonfund.nih.gov/GTEx). Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI\\Leidos Biomedical Research, Inc. subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to the The Broad Institute, Inc. Biorepository operations were funded through a Leidos Biomedical Research, Inc. subcontract to Van Andel Research Institute (10ST1035). Additional data repository and project management were provided by Leidos Biomedical Research, Inc.(HHSN261200800001E). The Brain Bank was supported supplements to University of Miami grant DA006227. Statistical Methods development grants were made to the University of Geneva (MH090941 \& MH101814), the University of Chicago (MH090951, MH090937, MH101825, \& MH101820), the University of North Carolina - Chapel Hill (MH090936), North Carolina State University (MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University (MH101810), and to the University of Pennsylvania (MH101822). The datasets used for the analyses described in this manuscript were obtained from dbGaP at \url{http://www.ncbi.nlm.nih.gov/gap} through dbGaP accession number phs000424.v7.p2 on 02/27/2020. 
 
 \Needspace{10\baselineskip}
 \subsection*{NABEC}
@@ -438,9 +438,11 @@ Data were generated as part of the PsychENCODE Consortium supported by: U01MH103
 
 N.K., O.E.G, and H.W. processed the RNA-seq and genotype data. N.K. and H.W. were responsible for data management. N.K. and H.W. were responsible for the \textit{cis}-eQTL analysis. H.W. was responsible for the \textit{trans}-eQTL analysis. M.V., Z.O. and M.I.Z. were responsible for the cell type proportion prediction. N.K. and M.V. were responsible for the cell type interaction analysis. S.D. was responsible for the selection of brain samples from ENA. D.B., Y.H., C.-Y.C., E.E.M, T.R.G. and E.A.T. were responsible for MR and colocalization analysis and interpretation. P.D., O.B.B. and L.F. were responsible for the Downstreamer analysis. L.F., E.A.T. and H.R. acquired funding and supervised the study. N.K., E.A.T., M.V., D.B, Y.H., C.-Y.C., O.B.B., H.R., L.F. and H.W. drafted the manuscript. All authors have proof-read the manuscript. 
 
+\newpage
 
 \bibliographystyle{naturemag}
-\bibliography{chapters/chapter5-brain-eqtls/chapter5-brain-eqtls}
+{\footnotesize 
+	\bibliography{chapters/chapter5-brain-eqtls/chapter5-brain-eqtls}}
 
 \leftwatermark{}
 \rightwatermark{}

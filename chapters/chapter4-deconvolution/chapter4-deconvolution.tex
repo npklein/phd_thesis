@@ -35,21 +35,21 @@ Raul Aguirre-Gamboa\textsuperscript{*}, Niek de Klein\textsuperscript{*}, Jennif
 \newpage
 
 { \Large \leftwatermark{
-		\put(-84,-66.5){ 1 }
-		\put(-84,-91.5){ 2 }
-		\put(-84,-116.5){ 3 }
+		\put(-50,-66.5){ 1 }
+		\put(-50,-91.5){ 2 }
+		\put(-50,-116.5){ 3 }
 		\put(-97.5,-151){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkBlue.eps}}  
-		\put(-84,-141.5){{\color{white} 4 }}
-		\put(-84,-166.5){ 5 }
-		\put(-84,-191.5){ 6 }
+		\put(-50,-141.5){{\color{white} 4 }}
+		\put(-50,-166.5){ 5 }
+		\put(-50,-191.5){ 6 }
 	} \rightwatermark{
-		\put(417.5,-66.5){ 1 }
-		\put(417.5,-91.5){ 2 }
-		\put(417.5,-116.5){ 3 }
-		\put(417.5,-151){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkBlue.eps}}  
-		\put(417.5,-141.5){ {\color{white} 4 } }
-		\put(417.5,-166.5){ 5 }
-		\put(417.5,-191.5){ 6 }
+		\put(388,-66.5){ 1 }
+		\put(388,-91.5){ 2 }
+		\put(388,-116.5){ 3 }
+		\put(380,-151){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_DarkBlue.eps}}  
+		\put(388,-141.5){ {\color{white} 4 } }
+		\put(388,-166.5){ 5 }
+		\put(388,-191.5){ 6 }
 }}
 
 \section*{Abstract}
@@ -135,11 +135,16 @@ To further demonstrate that the CTi eQTLs assigned by Decon-eQTL are biologicall
 
 In addition to the comparison of effect sizes, we compared the allelic concordance between deconvoluted eQTLs and eQTLs from purified cell subtypes9. For each available cell type (neutrophils, CD14+ monocytes, and CD4+ T cells), we evaluated whether the direction of the eQTL effect on deconvoluted CT eQTLs was the same as the one observed from purified cell sub-populations. The allelic concordance between the deconvoluted eQTLs and purified eQTLs was high across cell types: 99\% for granulocyte eQTLs (compared to neutrophil eQTLs), 96\% for CD14+ monocytes eQTLs, and 99\% for CD4+ T cells (\textbf{Figure \ref{decon_fig5}A}). These rates of allelic concordance are significantly higher for granulocyte and CD4+ T-cell CTi eQTLs compared to those between whole blood eQTLs and eQTLs from purified cell sub-populations (\textbf{Figure \ref{decon_fig5}B}, Neutrophils, Fisher exact p-value = $3.91 \times 10^{-106}$, CD4+ T cells Fisher exact p-value = $0.005$),  whereas the allelic concordance for deconvoluted CD14+ monocyte eQTLs is the same as for whole blood eQTLs and purified CD14+ monocyte eQTLs (\textbf{Figure \ref{decon_fig5}B}). We also compared the allelic concordance of deconvoluted CTi eQTLs of a certain cell type against the eQTLs of non-relevant purified sub-populations. Interestingly, the allelic concordance across non-relevant cell subtypes is consistently lower (off-diagonal \textbf{Supplementary Figure 12}, bonferroni corrected fisher exact p-value $< 0.0001$ for all comparisons). The higher allelic concordance across cell types was seen between deconvoluted granulocyte eQTLs and CD14+ monocyte eQTLs with a 95\% allelic concordance, which shows that the direction of effect is often shared between related cell types.
 
-\begin{figure}[H]
-	\includegraphics[width=\textwidth]{chapters/chapter4-deconvolution/img/fig5.png}
-	\caption{\textbf{Allelic concordance of CTi eQTLs with eQTLs from purified cells.} CTi eQTLs show high allelic concordance compared to eQTLs from purified cell subpopulations9. (A) for granulocyte eQTLs (green), CTi eQTLs achieved an allelic concordance of 99\% compared to eQTLs from purified neutrophils. Similarly, the allelic concordances were 96 and 99\% for CD14+ monocytes and CD4+ T cells, respectively. Except for monocytes, these values are higher than those observed for whole blood eQTLs when comparing to eQTLs from purified subpopulations, as shown in panel (B)}
-	\label{decon_fig5}
-\end{figure}
+% afterpage to remove page number at bottom, because figure takes whole page
+\afterpage{
+	\thispagestyle{empty}
+	\begin{figure}[H]
+	
+		\includegraphics[width=\textwidth]{chapters/chapter4-deconvolution/img/fig5.png}
+		\caption{\textbf{Allelic concordance of CTi eQTLs with eQTLs from purified cells.} CTi eQTLs show high allelic concordance compared to eQTLs from purified cell subpopulations9. (A) for granulocyte eQTLs (green), CTi eQTLs achieved an allelic concordance of 99\% compared to eQTLs from purified neutrophils. Similarly, the allelic concordances were 96 and 99\% for CD14+ monocytes and CD4+ T cells, respectively. Except for monocytes, these values are higher than those observed for whole blood eQTLs when comparing to eQTLs from purified subpopulations, as shown in panel (B)}
+		\label{decon_fig5}
+	\end{figure}
+}
 
 Finally, we evaluated the allelic concordance rates for CTi eQTLs assigned by Decon-eQTL and K27AC QTLs from purified cell sub-populations, where we observed a consistently high allelic concordance rate: 92\% for granulocyte eQTLs (in purified Neutrophils), 87\% for CD14+ monocytes and 92\% for CD4+ T cells (boxed diagonal comparisons in \textbf{Supplementary Figure 13}). These concordance rates are significantly higher than the ones between the whole blood eQTLs and K27AC QTLs from purified cell sub-populations (\textbf{Supplementary Figure 14}) for neutrophils (Fisher exact test p-value $= 9.06 \times 10^{-14}$), CD14+ monocytes (Fisher exact test p-value $= 3.33 \times 10{-4}$), CD4+ T cells (Fisher exact test p-value $= 8.64 \times 10^{-9}$). Moreover we notice a consistent decrease in allelic concordance rates when assessing the concordance of CT eQTLs in K27AC QTLs of non-relevant cell sub-populations (off-diagonal compasons, \textbf{Supplementary Figure 13}). Together, the results from allelic concordance rates between deconvoluted CTi eQTLs and eQTLs/K27AC QTLs from purified cell sub-populations add a further layer of evidence supporting the biological relevance of deconvoluted CT eQTLs.
 
@@ -184,12 +189,12 @@ In summary, Decon2 is a computational method that can accurately assign CT effec
 \section{Methods}
 \Needspace{10\baselineskip}
 \subsection{RNA-seq data collection in 500FG cohort}
-We selected a representative subset of 89 samples from the 500 participants of the 500FG cohort, which is part of the Human Functional Genomics Project (HFGP). Our subset was balanced for age and sex given the original distribution in the cohort. RNA was isolated from whole blood and subsequently globin transcripts were filtered by applying the Ambion GLOBINclear kit. The samples were then processed for sequencing using the library preparation kit Illumina TruSeq 2.0. Paired-end sequencing of $2 \times 50-bp$ reads was performed on the Illumina HiSeq 2000 platform. The quality of the raw reads was checked using FastQC (http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Read alignment was performed with STAR 2.3.032,33, using the human Ensembl GRCh37.75 as reference, whilst the aligned reads were sorted using SAMTools\cite{liSequenceAlignmentMap2009}. Lastly, gene level quantification of the reads was done using HTSeq35.
+We selected a representative subset of 89 samples from the 500 participants of the 500FG cohort, which is part of the Human Functional Genomics Project (HFGP). Our subset was balanced for age and sex given the original distribution in the cohort. RNA was isolated from whole blood and subsequently globin transcripts were filtered by applying the Ambion GLOBINclear kit. The samples were then processed for sequencing using the library preparation kit Illumina TruSeq 2.0. Paired-end sequencing of $2 \times 50-bp$ reads was performed on the Illumina HiSeq 2000 platform. The quality of the raw reads was checked using FastQC (\url{http://www.bioinformatics.babraham.ac.uk/projects/fastqc/}). Read alignment was performed with STAR 2.3.032,33, using the human Ensembl GRCh37.75 as reference, whilst the aligned reads were sorted using SAMTools\cite{liSequenceAlignmentMap2009}. Lastly, gene level quantification of the reads was done using HTSeq35.
 
 \Needspace{10\baselineskip}
 \subsection{RNA-seq preparation and data processing in the BIOS cohort}
 RNA was isolated from whole blood and subsequently globin transcripts were filtered by applying the Ambion GLOBINclear kit. Library preparation was performed using the Illumina TruSeq v2 library preparation kit. Next, Illumina HiSeq 2000 was used for paired-end sequencing of $2 \times 50 bp$ reads while pooling 10 samples per lane and expecting $>$ 15 million read pairs per sample. By using CASAVA read sets were generated, retaining only reads that passed Illumina Chastity Filter for further processing.
-Quality control of the reads was evaluated using FastQC (http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Adaptor sequences were trimmed out using cutadapt (v1.1) using default settings. Low quality ends of reads were removed using Sickle (v1.200) (https://github.com/najoshi/sickle). 
+Quality control of the reads was evaluated using FastQC (\url{http://www.bioinformatics.babraham.ac.uk/projects/fastqc/}). Adaptor sequences were trimmed out using cutadapt (v1.1) using default settings. Low quality ends of reads were removed using Sickle (v1.200) (\url{https://github.com/najoshi/sickle}). 
 Reads were then aligned using STAR 2.3.0e\cite{dobinSTARUltrafastUniversal2013}. All SNPs present in the Genome of the Netherlands (GoNL) with MAF $\geq 0.01$ were masked from the reads to avoid reference mapping bias. Read pairs with at most eight mismatches and mapping to at most five positions, were used. Quantification of counts per genes was done using Ensembl v.71 annotation (which corresponds to GENCODE v.16).
 
 \Needspace{10\baselineskip}
@@ -215,7 +220,7 @@ C_{kj} = \beta_{ki} \cdot Y_{ij} + \epsilon_{kj}
 \end{equation}
 
 where expression data is $Y_{ij}$ for genes $i = 1, 2,..., G$, samples $j = 1, 2, ..., N$, cell count data is $C_{kj}$ for sample $j$ in cell type $k (k = 1, 2, ..., K)$, $\beta_{ki}$ represents the coefficients of gene $i$ in determining cell counts of cell type $k$ of a complex tissue, and $\epsilon_{kj}$ is the error term.
-In order to select only the most informative genes for predicting cell counts, we implemented a feature selection scheme by applying an elastic net (EN) regularized regression25. In the EN algorithm, the $\beta_{ki} \cdot Y$ are estimated by minimizing:
+In order to select only the most informative genes for predicting cell counts, we implemented a feature selection scheme by applying an elastic net (EN) regularized regression. In the EN algorithm, the $\beta_{ki} \cdot Y$ are estimated by minimizing:
 
 \begin{equation}
 \Vert C_{k}-\beta_{k} Y\Vert^2\ subject\ to\ (1 - \alpha) \Vert \beta_{k} \Vert^2 + \alpha \Vert \beta_{k} \Vert_{1} \leq  s
@@ -273,7 +278,7 @@ y = \beta_{1} \cdot c_{1} + \beta_{2} \cdot c_{2}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
 
 For both the full model and the CT models we calculated the sum of squares using the different genotype configurations detailed above. For both the full and the CT models we then selected the genotype configuration with lowest sum of squares. Then, for each CT, we test if full model can significantly explain more variance than the CT model using an ANOVA.
 
-We have then applied our strategy to 16,362 significant whole blood cis-eQTLs top effects that were detected using the BIOS cohort. We then correct the p-values for multiple testing using FDR by each of the cell types, e.i. Granulocyte eQTL p-values were corrected for 16,362 tests, in the same way CD4+ T cells eQTL p-values were corrected for the exact same number of tests.
+We have then applied our strategy to 16,362 significant whole blood cis-eQTLs top effects that were detected using the BIOS cohort. We then correct the p-values for multiple testing using FDR by each of the cell types, e.g. Granulocyte eQTL p-values were corrected for 16,362 tests, in the same way CD4+ T cells eQTL p-values were corrected for the exact same number of tests.
 
 \Needspace{10\baselineskip}
 \subsection{Westra et al. interaction model}
@@ -298,9 +303,9 @@ The single cell eQTLs were obtained for 112 individuals in the same way as descr
 C.W., L.F. and YL initialized the study. Y.L. and L.F. directed and supervised the project. Y.L. developed the statistical framework, together with L.F.. R.A-G,, N.K., L.F., and Y.L., performed data analysis and interpretation. J.D.T. was involved in the initial analysis. N.K. and R.A-G. made the software and webtool. A.C, M.W., D.V., H.B., R.O, U.V., M. Z, X.C., O.B.B., Z.B., I.R.P., P.D., C.J.X., M.S., I.J., S.W., I.J., S.S., V.K., H.J.P.M.K., L.A.B.J., M.G.N., M.W., D.V., H.B., R.O. and C.W. contributed to data collection, data analysis and interpretation. R.A-G, N.K., L.F., and Y.L. draft and revised the manuscript. All authors have read and approved the manuscript.
 
 \section*{Acknowledgements}
-We thank K Mc Intyre and J Senior for editing the final text. We thank T. Spenkelink for the DeconCell web tool design. L.F. is supported by grants from the Dutch Research Council (ZonMW-VIDI 917.164.455 to M.S. and ZonMW-VIDI 917.14.374 to L.F.), and by an ERC Starting Grant, grant agreement 637640 (ImmRisk). Y.L. was supported by an ZonMW-OffRoad grant (91215206). The HFGP is supported by a European Research Council (ERC) Consolidator grant (ERC 310372). This study was further supported by an IN-CONTROL CVON grant (CVON2012-03) and a Netherlands Organization for Scientific Research (NWO) Spinoza prize (NWO SPI 94-212) to M.G.N.; an ERC advanced grant (FP/2007-2013/ERC grant 2012-322698) and an NWO Spinoza prize (NWO SPI 92-266) to C.W.; a European Union Seventh Framework Programme grant (EU FP7) TANDEM project (HEALTH-F3-2012-305279) to C.W. and V.K.; . RJX was supported by National Institutes of Health (NIH) grants - DK43351, AT009708, AI137325. A CONACYT-I2T2 scholarship (382117) to R.A-G. The Biobank-Based Integrative Omics Studies (BIOS) Consortium is funded by BBMRI-NL, a research infrastructure financed by the Dutch government (NWO 184.021.007). We thank the UMCG Genomics Coordination center, the UG Center for Information Technology and their sponsors BBMRI-NL \& TarGet for storage and compute infrastructure, and the Center for Information Technology of the University of Groningen for their support and for providing access to the Peregrine high performance computing cluster.
+We thank K Mc Intyre and J Senior for editing the final text. We thank T. Spenkelink for the DeconCell web tool design. L.F. is supported by grants from the Dutch Research Council (ZonMW-VIDI 917.164.455 to M.S. and ZonMW-VIDI 917.14.374 to L.F.), and by an ERC Starting Grant, grant agreement 637640 (ImmRisk). Y.L. was supported by an ZonMW-OffRoad grant (91215206). The HFGP is supported by a European Research Council (ERC) Consolidator grant (ERC 310372). This study was further supported by an IN-CONTROL CVON grant (CVON2012-03) and a Netherlands Organization for Scientific Research (NWO) Spinoza prize (NWO SPI 94-212) to M.G.N.; an ERC advanced grant (FP/2007-2013/ERC grant 2012-322698) and an NWO Spinoza prize (NWO SPI 92-266) to C.W.; a European Union Seventh Framework Programme grant (EU FP7) TANDEM project (HEALTH-F3-2012-305279) to C.W. and V.K.; RJX was supported by National Institutes of Health (NIH) grants - DK43351, AT009708, AI137325. A CONACYT-I2T2 scholarship (382117) to R.A-G. The Biobank-Based Integrative Omics Studies (BIOS) Consortium is funded by BBMRI-NL, a research infrastructure financed by the Dutch government (NWO 184.021.007). We thank the UMCG Genomics Coordination center, the UG Center for Information Technology and their sponsors BBMRI-NL \& TarGet for storage and compute infrastructure, and the Center for Information Technology of the University of Groningen for their support and for providing access to the Peregrine high performance computing cluster.
 
-\Needspace{10\baselineskip}
+\Needspace{20\baselineskip}
 \section{Declarations}
 \Needspace{10\baselineskip}
 \subsection{Competing interests}
@@ -310,8 +315,10 @@ None of the authors have competing interests.
 The deconvolution summary statistics are made available as supplementary table. Information on how to request the genotype and RNAseq data used for the eQTL calculation can be found here: \url{https://www.bbmri.nl/acquisition-use-analyze/bios.} A subset of the single cell eQTLs is preliminary data for which a manuscript is in preparation.
 
 
+\newpage
 \bibliographystyle{naturemag}
-\bibliography{chapters/chapter4-deconvolution/chapter4-deconvolution.bib}
+{\footnotesize
+	\bibliography{chapters/chapter4-deconvolution/chapter4-deconvolution.bib}}
 
 
 \leftwatermark{}

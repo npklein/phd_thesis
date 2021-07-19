@@ -36,21 +36,21 @@ Niek de Klein\textsuperscript{*}, Freerk van Dijk\textsuperscript{*}, Patrick De
 \newpage
 
 { \Large \leftwatermark{
-		\put(-84,-66.5){ 1 }
-		\put(-84,-91.5){ 2 }
+		\put(-50,-66.5){ 1 }
+		\put(-50,-91.5){ 2 }
 		\put(-97.5,-126){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_LightOrange.eps}}  
-		\put(-84,-116.5){ {\color{white} 3 }}
-		\put(-84,-141.5){ 4 }
-		\put(-84,-166.5){ 5 }
-		\put(-84,-191.5){ 6 }
+		\put(-50,-116.5){ {\color{white} 3 }}
+		\put(-50,-141.5){ 4 }
+		\put(-50,-166.5){ 5 }
+		\put(-50,-191.5){ 6 }
 	} \rightwatermark{
-		\put(417.5,-66.5){ 1 }
-		\put(417.5,-91.5){ 2 }
-		\put(417.5,-126){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_LightOrange.eps}}  
-		\put(417.5,-116.5){ {\color{white} 3 }}
-		\put(417.5,-141.5){ 4 }
-		\put(417.5,-166.5){ 5 }
-		\put(417.5,-191.5){ 6 }
+		\put(388,-66.5){ 1 }
+		\put(388,-91.5){ 2 }
+		\put(380,-126){\includegraphics[scale=0.8]{img/thumbindex/thumbindex_LightOrange.eps}}  
+		\put(388,-116.5){ {\color{white} 3 }}
+		\put(388,-141.5){ 4 }
+		\put(388,-166.5){ 5 }
+		\put(388,-191.5){ 6 }
 }}
 
 
@@ -73,7 +73,7 @@ Here we studied RNA from whole blood for 3,818 unrelated individuals from BIOS, 
 \section{Results}
 \Needspace{10\baselineskip}
 \subsection{RNA-Seq data can be used to create high-quality phased genotypes}
-We first determined the genotypes for all BIOS samples using RNA-Seq expression data by employing a modified version of the GATK\cite{mckennaGenomeAnalysisToolkit2010} best practices workflow for genotyping (see Methods). After joint genotype calling and filtering out genotypes with low quality, low call rate, or overlap with RNA-editing sites, missing genotype calls were imputed to their most likely genotypes using a backbone of genotyping array-genotypes and genotypes called from RNA-Seq. After quality control (QC), 297,656 SNPs in 9507 genes were called (\textbf{Supplementary Figure 1A}), and most of these SNPs had a low MAF (mean MAF = 0.036, \textbf{Supplementary Figure 1B}). The number of low MAF SNPs is so high largely due to the limitation of calling genotypes from RNA-Seq data, as genes have to be sufficiently expressed.
+We first determined the genotypes for all BIOS samples using RNA-Seq expression data by employing a modified version of the GATK\cite{mckennaGenomeAnalysisToolkit2010} best practices workflow for genotyping (see Methods). After joint genotype calling and filtering out genotypes with low quality, low call rate, or overlap with RNA-editing sites, missing genotype calls were imputed to their most likely genotypes using a backbone of genotyping array-genotypes and genotypes called from RNA-Seq. After quality control (QC), 297,656 SNPs in 9,507 genes were called (\textbf{Supplementary Figure 1A}), and most of these SNPs had a low MAF (mean MAF = 0.036, \textbf{Supplementary Figure 1B}). The number of low MAF SNPs is so high largely due to the limitation of calling genotypes from RNA-Seq data, as genes have to be sufficiently expressed.
 
 \begin{figure}[h!]
 	\includegraphics[width=\textwidth]{chapters/chapter3-allele-specific-expression/img/fig1.png}
@@ -83,7 +83,7 @@ We first determined the genotypes for all BIOS samples using RNA-Seq expression 
 
 For 249 samples, whole-genome sequencing (WGS) data was available from the Genome of the Netherlands (GoNL) project\cite{boomsmaGenomeNetherlandsDesign2014}, and we used this data as a gold standard comparison set to assess genotype quality. For genotypes called with our RNA-Seq genotype approach and present in the WGS data (73,422 variants, 78.95\% of GoNL RNA-Seq variants were available in GoNL WGS data), we observed a mean genotype concordance of 98.27\%. Furthermore, the allele frequency (AF) was highly concordant (R2 = 0.99, \textbf{Figure \ref{ase_fig1}A)} and similar at lower frequencies (AF $<$ 0.1: R2 = 0.937, \textbf{Figure \ref{ase_fig1}B}). 
 
-ASE for a gene can only be calculated if there is at least one heterozygous site within that gene. In total, we were able to genotype 9,508 genes in which at least one sample had a heterozygous coding SNP, with a mean of 1,495 samples with at least one heterozygous SNP per gene (Supplementary a). Of the genes where we found no samples with a heterozygous genotype, these genes were either not expressed or expressed at very low levels in blood, which prevented determination of the genotype. Overall, per sample genotype data could be derived for 3,650 genes on average (\textbf{Supplementary Figure 2B}). We then used SHAPEIT\cite{oconnellGeneralApproachHaplotype2014} to phase imputed genotypes to haplotypes and to calculate haplotype- and gene-level ASE effects. To determine the quality of the phasing, we again used the 249 samples for which WGS genotypes were available, and which were previously trio-phased with their parents, as the gold standard. In this data 69,752 heterozygous SNPs were called, of which 10,465 (15\%) have at least 1 sample with a switch error. For most SNPs, only 1 or a few samples had a switch error per SNP. Averaged over all SNPs and samples 1.97\% had a switch error (\textbf{Figure \ref{ase_fig1}C}). Together, this shows that the phasing of the RNA-Seq-based genotypes is of high quality, meaning that these data could be used for gene-based ASE.
+ASE for a gene can only be calculated if there is at least one heterozygous site within that gene. In total, we were able to genotype 9,508 genes in which at least one sample had a heterozygous coding SNP, with a mean of 1,495 samples with at least one heterozygous SNP per gene. Of the genes where we found no samples with a heterozygous genotype, these genes were either not expressed or expressed at very low levels in blood, which prevented determination of the genotype. Overall, per sample genotype data could be derived for 3,650 genes on average (\textbf{Supplementary Figure 2B}). We then used SHAPEIT\cite{oconnellGeneralApproachHaplotype2014} to phase imputed genotypes to haplotypes and to calculate haplotype- and gene-level ASE effects. To determine the quality of the phasing, we again used the 249 samples for which WGS genotypes were available, and which were previously trio-phased with their parents, as the gold standard. In this data 69,752 heterozygous SNPs were called, of which 10,465 (15\%) have at least 1 sample with a switch error. For most SNPs, only 1 or a few samples had a switch error per SNP. Averaged over all SNPs and samples 1.97\% had a switch error (\textbf{Figure \ref{ase_fig1}C}). Together, this shows that the phasing of the RNA-Seq-based genotypes is of high quality, meaning that these data could be used for gene-based ASE.
 
 \Needspace{10\baselineskip}
 \subsection{Selection of samples showing strong gene-level ASE effects}
@@ -95,7 +95,7 @@ The SNP-level ASE per sample was determined in the same way as the GeneASE, but 
 \subsection{ASE is replicated in GTEx whole-blood ASE and in eQTLs}
 To validate the ASE calls, we compared our SNP-level ASE over the whole population to eQTLs on the same dataset and ASE effects found in LCL cell lines\cite{deelenCallingGenotypesPublic2015} and GTEx\cite{pirinenAssessingAllelespecificExpression2015}. For each SNP for which at least 30 individuals were heterozygous, we summed the read counts overlapping the major allele and those overlapping the minor allele over all samples heterozygous for that SNP. We filtered out SNPs with 0 counts on the minor or major allele and calculated a ratio with -1*(0.5 - (major allele count / total count)), so that a negative ratio means that the minor allele has more reads than the major allele, and a positive ratio means the major allele has more reads than the minor allele. We compared this ratio to the BIOS eQTL z-score, allelic ratio of LCL ASE and allelic ratio of GTEx ASE. 
 
-For the eQTLs, there was an overlap of 4,394 SNPs with False Discovery Rate (FDR) $<$ 0.05 for both the ASE effect and the eQTL effect. Of these overlapping SNPs, 87.5\% had the same direction with a Spearman correlation coefficient of 0.78 (Supplementary ). For LCL ASEs, 7,901 SNPs overlapped when selecting only those SNPs with at least 30 heterozygous samples that are significant in both datasets (FDR $<$ 0.05), with a 72.2\% allelic concordance and Spearman correlation coefficient of 0.527 (\textbf{Supplementary Figure 4}). As expected, since it is the same tissue, we find the largest ASE overlap with GTEx whole blood. There were 9,117 overlapping SNPs after filtering for FDR $<$ 0.05 and at least 30 samples, these 9,117 SNPs had a Spearman R2 of 0.72 and an allelic concordance of 82.65\% (\textbf{Figure \ref{ase_fig1}}). For other GTEx tissues the Spearman R2 was between 0.6 and 0.68 (\textbf{Supplementary Figure 5}).
+For the eQTLs, there was an overlap of 4,394 SNPs with False Discovery Rate (FDR) $<$ 0.05 for both the ASE effect and the eQTL effect. Of these overlapping SNPs, 87.5\% had the same direction with a Spearman correlation coefficient of 0.78. For LCL ASEs, 7,901 SNPs overlapped when selecting only those SNPs with at least 30 heterozygous samples that are significant in both datasets (FDR $<$ 0.05), with a 72.2\% allelic concordance and Spearman correlation coefficient of 0.527 (\textbf{Supplementary Figure 4}). As expected, since it is the same tissue, we find the largest ASE overlap with GTEx whole blood. There were 9,117 overlapping SNPs after filtering for FDR $<$ 0.05 and at least 30 samples, these 9,117 SNPs had a Spearman R2 of 0.72 and an allelic concordance of 82.65\% (\textbf{Figure \ref{ase_fig1}}). For other GTEx tissues the Spearman R2 was between 0.6 and 0.68 (\textbf{Supplementary Figure 5}).
 
 \Needspace{10\baselineskip}
 \subsection{Rare variants are not enriched for ASE effects}
@@ -112,23 +112,23 @@ To investigate if ASE can be used to prioritize likely pathogenic variants, we t
 \end{figure}
 
 
-We then annotated the genes in which these SNPs are located into different disease categories using the Online Mendelian Inheritance in Men (OMIM) database\cite{hamoshOnlineMendelianInheritance2000}. For some disease categories, where high-impact variants (as predicted by SnpEff\cite{cingolaniProgramAnnotatingPredicting2012}) are found within genes, the fraction of outlier genes is higher for the high-impact variants than for the benign variants. For example, high impact variants showed higher allelic imbalance than low and moderate impact variants for “allergy/immunology/infectious” diseases, “audiologic/otolaryngologic” diseases, “hematologic” diseases, and dental diseases, while no such difference was seen for other disease categories (\textbf{Figure \ref{ase_fig3}}). This suggests that ASE works better in prioritizing variants when RNA-Seq measurements are taken from disease-relevant tissue. 
+We then annotated the genes in which these SNPs are located into different disease categories using the Online Mendelian Inheritance in Men (OMIM) database\cite{hamoshOnlineMendelianInheritance2000} and SnpEff\cite{cingolaniProgramAnnotatingPredicting2012}. For some disease categories, where high-impact variants (as predicted by SnpEff\cite{cingolaniProgramAnnotatingPredicting2012}) are found within genes, the fraction of outlier genes is higher for the high-impact variants than for the benign variants. For example, high impact variants showed higher allelic imbalance than low and moderate impact variants for “allergy/immunology/infectious” diseases, “audiologic/otolaryngologic” diseases, “hematologic” diseases, and dental diseases, while no such difference was seen for other disease categories (\textbf{Figure \ref{ase_fig3}}). This suggests that ASE works better in prioritizing variants when RNA-Seq measurements are taken from disease-relevant tissue. 
 
 \begin{figure}[h!]
 	\includegraphics[width=\textwidth]{chapters/chapter3-allele-specific-expression/img/fig3.pdf}
-	\caption{\textbf{Comparison of proportion of variants that show allelic imbalance between clinvar annotated variants for different OMIM disease categories.} Each plot is a different OMIM disease category. The x-axis are ClinVar pathogenicity categories. The y-axis is the proportion of variants that belong to that category that show allelic imbalance (binom FDR p-value < 0.05), e.g. of the 59 VUS SNPs in Audiologic genes, ~20\% shows allelic imbalance. The same variant can be counted multiple times if multiple samples carry the same variant. }
+	\caption{\textbf{Comparison of proportion of variants that show allelic imbalance between SnpEff annotated variants for different OMIM disease categories.} Each plot is a different OMIM disease category. The x-axis are SnpEff impact categories. The y-axis is the proportion of variants that belong to that category that show allelic imbalance (binomial FDR p-value $<$ 0.05), e.g. of the 17 high impact SNPs in Audiologic genes, 30\% shows allelic imbalance. The same variant can be counted multiple times if multiple samples carry the same variant. P-values above bars are from fisher exact test, corrected for the total number of tests in this plot using Bonferonni correction. }
 	\label{ase_fig3}
 \end{figure}
 
 
 \Needspace{10\baselineskip}
 \subsection{Splice donor and acceptor variants are often the cause of allelic imbalance}
-We next investigated the functional effect of ASE variants by annotating variants using SnpEff \cite{cingolaniProgramAnnotatingPredicting2012}, a genetic variant annotation and functional effect prediction toolbox. We observed that for some disease categories, predicted high impact variants showed allelic imbalance more often than moderate and low impact variants (\textbf{Supplementary Figure 6}). When examining SnpEff predicted inheritance categories, the high impact variants always showed a higher proportion of allelic imbalance for all inheritance categories that contained high impact variants (Autosomal Dominant (AD), Autosomal Dominant or Autosomal Recessive (AD/AR), Autosomal Recessive (AR), and other, \textbf{Supplementary Figure 7}). The SnpEff categories are partly based on the type of mutation. Within the high impact category, splice donor and acceptor variants showed allelic imbalance more often (64\% and 71\%, respectively) than stop gained, stop loss and start loss variants (41\%, 49\% and 12\%, respectively). When variants were stratified by high impact category, the strongest enrichment (Test of Proportions p = 4.72x10-106, \textbf{Supplementary Figure 8}) was observed in the stop gain category. Other categories in which this enrichment is present are start loss (p = 2.73x10-25), stop loss (p = 2.5x10-50) and splice acceptor sites (p = 5.67x10-05).
+We next investigated the functional effect of ASE variants by annotating variants using SnpEff \cite{cingolaniProgramAnnotatingPredicting2012}, a genetic variant annotation and functional effect prediction toolbox. We observed that for some disease categories, predicted high impact variants showed allelic imbalance more often than moderate and low impact variants (\textbf{Supplementary Figure 6}). When examining SnpEff predicted inheritance categories, the high impact variants always showed a higher proportion of allelic imbalance for all inheritance categories that contained high impact variants (Autosomal Dominant (AD), Autosomal Dominant or Autosomal Recessive (AD/AR), Autosomal Recessive (AR), and other, \textbf{Supplementary Figure 7}). The SnpEff categories are partly based on the type of mutation. Within the high impact category, splice donor and acceptor variants showed allelic imbalance more often (64\% and 71\%, respectively) than stop gained, stop loss and start loss variants (41\%, 49\% and 12\%, respectively). When variants were stratified by high impact category, the strongest enrichment (Test of Proportions $p = 4.72 \times 10^{-106}$, \textbf{Supplementary Figure 8}) was observed in the stop gain category. Other categories in which this enrichment is present are start loss ($p = 2.73 \times 10^{-25}$), stop loss ($p = 2.5 \times 10^{-50}$) and splice acceptor sites (p = $5.67 \times 10^{-05}$).
 
 
 \Needspace{10\baselineskip}
 \subsection{Predicted high impact variants under express the minor allele}
-The effect of high impact variants might be mitigated if the expression of the haplotype with the disruptive allele is lower than that of the haplotype with the functional allele. To test this, we annotated the geneASE SNPs with SnpEff-predicted impact categories. Here we observed that the minor/major expression ratio of high impact variants showed significantly larger differences than that of moderate (Wilcoxon  test p = 1.9x10-15) and low impact variants (Wilcoxon test p = 6.8x10-26, \textbf{Figure \ref{ase_fig4}}). We speculate that this is because the high impact variant limits the amount of expression of the haplotype of that allele by having a start loss or stop gain function, possibly leading to nonsense-mediated decay. The major haplotype can compensate for the loss of function of the modified haplotype to keep the overall expression of the gene similar to the baseline expression. One way this can happen is due to a feedback loop from downstream proteins not getting enough correctly binding proteins, initiating the transcription of more RNA of the imbalanced gene. 
+The effect of high impact variants might be mitigated if the expression of the haplotype with the disruptive allele is lower than that of the haplotype with the functional allele. To test this, we annotated the geneASE SNPs with SnpEff-predicted impact categories. Here we observed that the minor/major expression ratio of high impact variants showed significantly larger differences than that of moderate (Wilcoxon  test $p = 1.9 \times 10^{-15}$) and low impact variants (Wilcoxon test $p = 6.8 \times 10^{-26}$, \textbf{Figure \ref{ase_fig4}}). We speculate that this is because the high impact variant limits the amount of expression of the haplotype of that allele by having a start loss or stop gain function, possibly leading to nonsense-mediated decay. The major haplotype can compensate for the loss of function of the modified haplotype to keep the overall expression of the gene similar to the baseline expression. One way this can happen is due to a feedback loop from downstream proteins not getting enough correctly binding proteins, initiating the transcription of more RNA of the imbalanced gene. 
 
 \begin{figure}[h!]
 	\includegraphics[width=\textwidth]{chapters/chapter3-allele-specific-expression/img/fig4.pdf}
@@ -231,8 +231,9 @@ The RNA-Seq, DNA methylation, sex, age and cell count data (but not genetic and 
 We thank K. Mc Intyre for editing the final text. F.v D. is supported by the Netherlands CardioVascular Research Initiative: "the Dutch Heart Foundation, Dutch Federation of University Medical Centres, the Netherlands Organisation for Health Research and Development and the Royal Netherlands Academy of Sciences" (CVON2011-19). L.F. is supported by grants from the Dutch Research Council (ZonMW-VIDI 917.164.455 to M.S. and ZonMW-VIDI 917.14.374 to L.F.), by an ERC Starting Grant, grant agreement 637640 (ImmRisk) and by an Oncode Senior Investigator Grant. The Biobank-Based Integrative Omics Studies (BIOS) Consortium is funded by BBMRI-NL, a research infrastructure financed by the Dutch government (NWO 184.021.007). We thank the UMCG Genomics Coordination Center, the UG Center for Information Technology and their sponsors BBMRI-NL \& TarGet for storage and compute infrastructure.
 
 
-
+\newpage
 \bibliographystyle{naturemag}
-\bibliography{chapters/chapter3-allele-specific-expression/chapter3-ase}
+{\footnotesize
+	\bibliography{chapters/chapter3-allele-specific-expression/chapter3-ase}}
 \leftwatermark{}
 \rightwatermark{}
